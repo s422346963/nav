@@ -1,0 +1,2344 @@
+[
+    {
+        "id": 1106,
+        "title": "常用推荐",
+        "icon": "",
+        "nav": [
+            {
+                "id": 1121,
+                "title": "常用网址",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1134,
+                        "title": "常用网址",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1202,
+                                "name": "摸鱼热榜 - 微博知乎B站抖音热搜聚合",
+                                "desc": "摸鱼热榜聚合微博、知乎、B站、抖音、虎扑、百度、GitHub、V2EX 等公开热榜，帮你快速扫一眼今天大家在聊什么。",
+                                "rate": 5,
+                                "icon": "https://moyuhot.com/favicon.ico",
+                                "url": "https://moyuhot.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1152,
+                                "name": "Discord",
+                                "desc": "Discord is great for playing games and chilling with friends, or even building a worldwide community. Customize your own space to talk, play, and hang out.",
+                                "rate": 5,
+                                "icon": "https://cdn.prod.website-files.com/6257adef93867e50d84d30e2/62fddf0fde45a8baedcc7ee5_847541504914fd33810e70a0ea73177e%20(2)-1.png",
+                                "url": "https://discord.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1145,
+                                "name": "哔哩哔哩",
+                                "desc": "哔哩哔哩（bilibili.com)是国内知名的视频弹幕网站，这里有及时的动漫新番，活跃的ACG氛围，有创意的Up主。大家可以在这里找到许多欢乐。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://i0.hdslb.com/bfs/static/jinkela/long/images/512.png",
+                                "url": "https://www.bilibili.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1144,
+                                "name": "百度一下，你就知道",
+                                "desc": "全球领先的中文搜索引擎、致力于让网民更便捷地获取信息，找到所求。百度超过千亿的中文网页数据库，可以瞬间找到相关的搜索结果。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.baidu.com/favicon.ico",
+                                "url": "https://www.baidu.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1143,
+                                "name": "必应",
+                                "desc": "使用 Microsoft 必应进行搜索，并利用 AI 的强大功能查找信息、浏览网页、图像、视频、地图等。为永远充满好奇心的人提供的智能搜索引擎。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://cn.bing.com/favicon.ico",
+                                "url": "https://cn.bing.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1142,
+                                "name": "贴吧",
+                                "desc": "我的贴吧",
+                                "rate": 5,
+                                "icon": "https://tieba.baidu.com/favicon.ico",
+                                "url": "https://tieba.baidu.com/i/i?fr=home",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1141,
+                                "name": "Yandex",
+                                "desc": "Yandex finds anything: webpages, images, music, good. Solve any problem — from everyday to a scientific one. Search by text, voice or image.",
+                                "rate": 5,
+                                "icon": "https://yastatic.net/s3/home-static/_/nova/ZKozwZ-k.png",
+                                "url": "https://yandex.eu",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1140,
+                                "name": "Google",
+                                "desc": "Google一下，你就知道",
+                                "rate": 5,
+                                "icon": "https://www.google.com/favicon.ico",
+                                "url": "https://www.google.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1139,
+                                "name": "博客园",
+                                "desc": "专注于为开发者服务，帮助开发者用代码改变世界",
+                                "rate": 5,
+                                "icon": "https://assets.cnblogs.com/logo_square.png",
+                                "url": "https://www.cnblogs.com/cate/java",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1138,
+                                "name": "GitHub",
+                                "desc": "跳转Github",
+                                "rate": 5,
+                                "icon": "https://github.githubassets.com/favicons/favicon.svg",
+                                "url": "https://github.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1137,
+                                "name": "CSDN",
+                                "desc": "CSDN是全球知名中文IT技术交流平台",
+                                "rate": 5,
+                                "icon": "https://g.csdnimg.cn/static/logo/favicon32.ico",
+                                "url": "https://www.csdn.net",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1136,
+                                "name": "Gitee",
+                                "desc": "面向企业提供一站式研发管理解决方案，包括代码管理、项目管理、文档协作、测试管理、CICD、效能度量等多个模块，支持SaaS、私有化等多种部署方式，帮助企业有序规划和管理研发过程，提升研发效率和质量。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://gitee.com/favicon.ico",
+                                "url": "https://gitee.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1135,
+                                "name": "Gmail",
+                                "desc": "Gmail 是一款直观、高效且实用的邮件应用。免费提供 15 GB 存储空间，具备出色的垃圾邮件过滤功能，而且支持移动访问。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://mail.google.com/favicon.ico",
+                                "url": "https://mail.google.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1131,
+                        "title": "购物相关",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1133,
+                                "name": "京东",
+                                "desc": "JD.com is the largest retailer in China, a member of the NASDAQ100 and a Fortune Global 500 company.",
+                                "rate": 5,
+                                "icon": "https://www.jd.com/favicon.ico",
+                                "url": "https://www.jd.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1132,
+                                "name": "淘宝",
+                                "desc": "淘宝网 - 亚洲较大的网上交易平台，提供各类服饰、美容、家居、数码、话费/点卡充值… 数亿优质商品，同时提供担保交易(先收货后付款)等安全交易保障服务，并由商家提供退货承诺、破损补寄等消费者保障服务，让你安心享受网上购物乐趣！",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://img.alicdn.com/tps/i3/T1OjaVFl4dXXa.JOZB-114-114.png",
+                                "url": "https://www.taobao.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1126,
+                        "title": "生活相关",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1130,
+                                "name": "中国裁判文书网",
+                                "desc": "中国裁判文书网",
+                                "rate": 5,
+                                "icon": "https://wenshu.court.gov.cn/website/wenshu/images/favicon.ico",
+                                "url": "https://wenshu.court.gov.cn/website/wenshu/181029CR4M5A62CH/index.html",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1129,
+                                "name": "国家企业信用学习公示系统",
+                                "desc": "国家企业信用学习公示系统",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://www.gsxt.gov.cn/index.html",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1128,
+                                "name": "黑猫投诉",
+                                "desc": "黑猫投诉平台是新浪旗下消费者投诉平台,快速解决315消费投诉,315投诉维权,共享服务投诉,购物平台投诉,旅游出行投诉,住宿投诉,娱乐生活投诉,教育培训投诉,金融支付投诉等,拥有海量企业库,各领域专家,专业律师团队及权威帮帮团来帮助消费者。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://zj.tousu.sina.com.cn/favicon.ico",
+                                "url": "https://zj.tousu.sina.com.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1127,
+                                "name": "中国庭审公开网",
+                                "desc": "中国庭审公开网",
+                                "rate": 5,
+                                "icon": "https://sts.videoincloud.com/static/img/favorite.ico",
+                                "url": "https://tingshen.court.gov.cn/live",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1122,
+                        "title": "股市相关",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1125,
+                                "name": "东方财富网",
+                                "desc": "东方财富网，专业的互联网财经媒体，提供7*24小时财经资讯及全球金融市场报价，汇聚全方位的综合财经资讯和金融市场资讯，覆盖股票、财经、证券、金融、美股、港股、行情、基金、债券、期货、外汇、科创板、保险、信托、黄金、理财、商业、银行、博客、股吧、财迷、论坛等财经综合信息",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://g1.dfcfw.com/g1/special/Apple_ico.png",
+                                "url": "https://www.eastmoney.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1124,
+                                "name": "【股指期货】",
+                                "desc": "中国和国际股指期货最新行情，今日股票指数期货市场报价与分析，把握股指期货实时走势。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://cn.investing.com/favicon.ico",
+                                "url": "https://cn.investing.com/indices/indices-futures",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1123,
+                                "name": "雪球",
+                                "desc": "雪球",
+                                "rate": 5,
+                                "icon": "https://xueqiu.com/favicon.ico",
+                                "url": "https://xueqiu.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1151,
+                                "name": "黄金白银",
+                                "desc": "查看现货黄金白银价格",
+                                "rate": 5,
+                                "icon": "https://res.cngoldres.com/web/img/favicon.ico",
+                                "url": "https://quote.cngold.org/gjs/gjhj_xhhj.html",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1221,
+                        "title": "持续学习",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1222,
+                                "name": "AI时代的计算机知识库",
+                                "desc": "从零到一学习 Vibe Coding - 零基础学会用 AI 编程，掌握 Claude Code、Cursor 等 AI IDE 工具",
+                                "rate": 5,
+                                "icon": "https://datawhalechina.github.io/easy-vibe/logo.png",
+                                "url": "https://datawhalechina.github.io/easy-vibe/zh-cn/appendix",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1111,
+                "title": "AI相关资源",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1112,
+                        "title": "AI",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1185,
+                                "name": "Builder.io",
+                                "desc": "原型图前端工具，Builder is an AI-Powered Visual Development Platform that helps teams generate, iterate, and optimize web and mobile experiences in seconds instead of sprints.",
+                                "rate": 5,
+                                "icon": "https://builder.io/api/v1/image/assets%2FYJIGb4i01jvw0SRdL5Bt%2F397134b86ceb49818bcfa4baf25708a3?width=480",
+                                "url": "https://builder.io/app",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1172,
+                                "name": "智谱AI开放平台",
+                                "desc": "智谱大模型开放平台-新一代国产自主通用AI大模型开放平台，是国内大模型排名前列的大模型网站，研发了多款LLM模型，多模态视觉模型产品，致力于将AI产品技术与行业场景双轮驱动的中国先进的认知智能技术和千行百业应用相结合，构建更高精度、高效率、通用化的AI开发新模式和企业级解决方案，实现智谱大模型的产业化，将AI的好处带给每个人。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.bigmodel.cn/img/icons/favicon-32x32.png",
+                                "url": "https://www.bigmodel.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1120,
+                                "name": "豆包",
+                                "desc": "豆包是你的 AI 聊天智能对话问答助手，写作文案翻译编程全能工具。豆包为你答疑解惑，提供灵感，辅助创作，也可以和你畅聊任何你感兴趣的话题。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://lf-flow-web-cdn.doubao.com/obj/flow-doubao/doubao/web/logo-icon.png",
+                                "url": "https://www.doubao.com/chat",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1171,
+                                "name": "AI工具集官网",
+                                "desc": "AI工具集官网收录了国内外数百个AI工具，该导航网站包括AI写作工具、AI图像生成和背景移除、AI视频制作、AI音频转录、AI辅助编程、AI音乐生成、AI绘画设计、AI对话聊天等AI工具集合大全，以及AI学习开发的常用网站、框架和模型，帮助你加入人工智能浪潮，自动化高效完成任务！",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://ai-bot.cn/wp-content/uploads/2023/03/ai-bot-square-logo.png",
+                                "url": "https://ai-bot.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1180,
+                                "name": "ModelScope 魔搭社区",
+                                "desc": "ModelScope——汇聚各领域先进的机器学习模型，提供模型探索体验、推理、训练、部署和应用的一站式服务。在这里，共建模型开源社区，发现、学习、定制和分享心仪的模型。也可以调用大模型功能",
+                                "rate": 5,
+                                "icon": "https://g.alicdn.com/sail-web/maas/2.13.12/favicon/128.ico",
+                                "url": "https://www.modelscope.cn/my/overview",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1150,
+                                "name": "Sora",
+                                "desc": "AI视频生成",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://sora.chatgpt.com/explore",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1119,
+                                "name": "通义 - 你的超级个人助理",
+                                "desc": "通义是一个通情、达义的国产AI模型，可以帮你解答问题、文档阅读、联网搜索并写作总结，最多支持1000万字的文档速读。通义_你的全能AI助手",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://img.alicdn.com/imgextra/i4/O1CN01EfJVFQ1uZPd7W4W6i_!!6000000006051-2-tps-112-112.png",
+                                "url": "https://www.tongyi.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1118,
+                                "name": "noiz文本转语言",
+                                "desc": "noiz文本转语言",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://noiz.ai/tts/creation",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1117,
+                                "name": "viggle视频人物替换",
+                                "desc": "viggle ai视频人物替换",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://www.viggle.ai/create-mix",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1114,
+                                "name": "大模型服务平台百炼控制台",
+                                "desc": "百炼控制台是阿里云大模型服务平台，提供AI模型训练、部署、推理一站式服务，支持多种大模型框架，助力企业快速构建AI应用。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://img.alicdn.com/tfs/TB1_ZXuNcfpK1RjSZFOXXa6nFXa-32-32.ico",
+                                "url": "https://bailian.console.aliyun.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1177,
+                        "title": "Skills & MCP",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1230,
+                                "name": "海量 MCP Servers 导航网站",
+                                "desc": "收录最全的优质 MCP server 资源，涵盖效率工具、天气地理位置、内容生成等多种分类的 MCP 资源，满足您全方位需求。您可直接输入需求，平台会深度理解并且识别您多维度的意图，精准推荐 MCP 服务",
+                                "rate": 5,
+                                "icon": "https://mcpworld.bdstatic.com/store/v2/865ad5d/mcp-server-store/d4071e9/favicon.ico",
+                                "url": "https://www.mcpworld.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1224,
+                                "name": "SkillHub-专为中国用户优化的Skills社区",
+                                "desc": "SkillHub是面向中国用户的AI技能社区，SkillHub 精选 Top 50 高质量 AI Skills，经过安全审核与多维度评估，助你发现最实用的 AI 技能。",
+                                "rate": 5,
+                                "icon": "https://cloudcache.tencent-cloud.com/qcloud/ui/static/other_external_resource/2e166ec6-6f47-4c6d-9915-3f0d75192b56.png",
+                                "url": "https://skillhub.cn/skills?sortBy=score",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1179,
+                                "name": "Skills.sh",
+                                "desc": "Discover and install skills for AI agents.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://skills.sh/favicon.ico?favicon.0b3bf435.ico?dpl=dpl_7pE2jbo6iMJz9ZnJtqNTmTUubgyp",
+                                "url": "https://skills.sh",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1174,
+                                "name": "Agent Skills市场",
+                                "desc": "Agent Skills市场，Agent Skills Marketplace",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://skillsmp.com/zh",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1178,
+                                "name": "Claude Skills - 在线市场",
+                                "desc": "最大的 Claude 技能和能力市场，包括 Awesome Claude Plugin 和 Claude Skills，支持快速搜索、下载和使用",
+                                "rate": 5,
+                                "icon": "https://skills.pub/favicon-16x16.png",
+                                "url": "https://skills.pub/zh",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1193,
+                        "title": "AI相关",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1201,
+                                "name": "最全API中转站",
+                                "desc": "最全API中转站导航——人工大黑搜集整理：收录 近200个AI 模型 API 中转/聚合服务，覆盖 OpenAI、Claude、Gemini、Qwen、DeepSeek 等，帮你快速对比价格、稳定性与使用体验。",
+                                "rate": 5,
+                                "index": 1002,
+                                "icon": "",
+                                "url": "https://api.daheiai.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1218,
+                                "name": "Design.md Generator",
+                                "desc": "免费生成design.md文件：Enter any domain and get a design.md — the colors, fonts, components, and visual rules your AI coding agent needs to match that site. Free, no account required.",
+                                "rate": 5,
+                                "icon": "https://www.context.dev/favicon-16x16.png",
+                                "url": "https://www.context.dev/free-tools/design-md-generator",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1194,
+                                "name": "DESIGN.md collection for AI coding agents",
+                                "desc": "前端开发、前端设计、AI开发，获取网站的设计design.md",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://getdesign.md/favicon.svg",
+                                "url": "https://getdesign.md",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1207,
+                        "title": "中转站",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1229,
+                                "name": "OpenRouter免费模型",
+                                "desc": "Compare 500+ LLMs from OpenAI, Anthropic, Google, Meta and more — pricing, context length, and benchmarks side by side, all through one API.",
+                                "rate": 5,
+                                "icon": "https://openrouter.ai/favicon/glyph.png",
+                                "url": "https://openrouter.ai/models?variant=free",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1217,
+                                "name": "猫艾",
+                                "desc": "0.75/3.5   gpt5.4\n1.5/6.75   gpt5.5\n3/15         claude4.6",
+                                "rate": 5,
+                                "icon": "https://api.maoapi.org/pixel-cat-logo.jpg?v=20260712-light",
+                                "url": "https://api.maoapi.org",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1209,
+                                "name": "daseinai - AI API Gateway",
+                                "desc": "GPT  有少量免费额度\ngpt-5.5   $5.00/$30.00\ngpt-5.4   $2.50/$15.00",
+                                "rate": 5,
+                                "icon": "https://www.daseinai.xyz/logo.png",
+                                "url": "https://www.daseinai.xyz/dashboard",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1208,
+                                "name": "APIKEY.FUN",
+                                "desc": "gpt-5.5   $2.50/$15.00\ngpt-5.4   $1.25/$7.500\nclaude-opus-4-7  $4.00/$20.00",
+                                "rate": 5,
+                                "icon": "https://api.ikuncode.cc/logo.png",
+                                "url": "https://apikey.fun/dashboard",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1216,
+                                "name": "TOKEN GO",
+                                "desc": "0.5/3\n5/24",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://tokgo.co/logo.png",
+                                "url": "https://tokgo.co",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "id": 1107,
+                "title": "资源下载",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1108,
+                        "title": "软件下载",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1228,
+                                "name": "Microsoft Store",
+                                "desc": "微软商店应用直接下载。\n先到这里找到对应的链接：https://apps.microsoft.com/home?hl=zh-CN&gl=CN",
+                                "rate": 5,
+                                "icon": "https://store.rg-adguard.net/favicon.ico",
+                                "url": "https://store.rg-adguard.net",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1168,
+                                "name": "NEXT, ITELLYOU",
+                                "desc": "NEXT, ITELLYOU，windows下载，ISO，System Image",
+                                "rate": 5,
+                                "icon": "https://next.itellyou.cn/favicon.ico",
+                                "url": "https://next.itellyou.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1089,
+                                "name": "MSDN, 我告诉你 - 做一个安静的工具站",
+                                "desc": "MSDN, 我告诉你，windows",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://msdn.itellyou.cn/favicon.ico",
+                                "url": "https://msdn.itellyou.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1110,
+                                "name": "软件站",
+                                "desc": "软件下载，免费",
+                                "rate": 5,
+                                "icon": "https://www.32r.com/favicon.ico",
+                                "url": "https://www.32r.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1109,
+                                "name": "自学365资源站",
+                                "desc": "软件资源下载",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://zx365.top",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1219,
+                        "title": "素材下载",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1227,
+                                "name": "模型创作分享社区_模之屋",
+                                "desc": "模之屋(PlayBox)是一个专业模型创作分享社区，Live2D，虚拟主播，海量模型作品一手掌握，找模型就上模之屋! 专注多品类3D模型下载、原创作品分享、软件学习",
+                                "rate": 5,
+                                "icon": "https://www.aplaybox.com/favicon.ico",
+                                "url": "https://www.aplaybox.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1220,
+                                "name": "Assets · Kenney",
+                                "desc": "免费游戏素材、Kenney素材库、游戏开发素材网站、CC0游戏资源、2D精灵图下载、3D模型下载、游戏UI素材",
+                                "rate": 5,
+                                "icon": "https://kenney.nl/favicon.ico",
+                                "url": "https://kenney.nl/assets",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1155,
+                        "title": "在线资源",
+                        "icon": "",
+                        "ownVisible": true,
+                        "nav": [
+                            {
+                                "id": 1161,
+                                "name": "禁漫天堂",
+                                "desc": "免费漫画在线 18comic",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "https://18comic.vip/favicon.ico",
+                                "url": "https://18comic.vip",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1160,
+                                "name": "hacg",
+                                "desc": "琉璃神社",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "https://hacg.casa/wp/wp-content/uploads/2016/11/favicon.jpg",
+                                "url": "https://hacg.diy",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1159,
+                                "name": "nyaa",
+                                "desc": "Nyaa在线资源种子",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "https://sukebei.nyaa.si/static/favicon.png",
+                                "url": "https://sukebei.nyaa.si/?f=0&c=1_1&q=",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1158,
+                                "name": "omofuns",
+                                "desc": "视频在线观看动漫资源",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "https://www.omofuns.com/template/the4/statics/img/favicon.ico",
+                                "url": "https://www.omofuns.com",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1157,
+                                "name": "hanime1",
+                                "desc": "动漫在线视频资源",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "",
+                                "url": "https://hanime1.me",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1156,
+                                "name": "missav",
+                                "desc": "在线视频AV",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "",
+                                "url": "https://missav.ai/dm38",
+                                "tags": [],
+                                "top": false
+                            },
+                            {
+                                "id": 1226,
+                                "name": "阿鉴评测",
+                                "desc": "阿鉴评测 – 全网最中立、最客观的飞机杯评测网站",
+                                "rate": 5,
+                                "ownVisible": true,
+                                "icon": "https://ajianpingce.com/wp-content/uploads/2024/04/cropped-cropped-阿鉴测评1-3月-1-150x150.jpg",
+                                "url": "https://ajianpingce.com",
+                                "tags": [],
+                                "top": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "title": "实用工具",
+        "nav": [
+            {
+                "title": "开发工具",
+                "nav": [
+                    {
+                        "id": 1100,
+                        "title": "常用工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1105,
+                                "name": "Spring",
+                                "desc": "Spring initializr",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://start.spring.io",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1104,
+                                "name": "Nginx配置",
+                                "desc": "Nginx在线配置The easiest way to configure a performant, secure, and stable nginx server.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.digitalocean.com/_next/static/media/apple-touch-icon.d7edaa01.png",
+                                "url": "https://www.digitalocean.com/community/tools/nginx",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1103,
+                                "name": "Docker Hub",
+                                "desc": "Welcome to the world's largest container registry built for developers and open source contributors to find, use, and share their container images. Build, push and pull.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://hub.docker.com/favicon.ico",
+                                "url": "https://hub.docker.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1102,
+                                "name": "K8S工具",
+                                "desc": "在线K8S.Learn DevOps Linux Kubernetes CKS CKA CKAD Git Linux Programming",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://killercoda.com/favicon.ico",
+                                "url": "https://killercoda.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1101,
+                                "name": "maven",
+                                "desc": "maven工具",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://mvnrepository.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1167,
+                                "name": "Python仓库",
+                                "desc": "The Python Package Index (PyPI) is a repository of software for the Python programming language.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://pypi.org/static/images/favicon.35549fe8.ico",
+                                "url": "https://pypi.org",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1097,
+                        "title": "设计工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1098,
+                                "name": "Draw.IO.UML",
+                                "desc": "UML工具，draw.io is free online diagram software for making flowcharts, process diagrams, org charts, UML, ER and network diagrams",
+                                "rate": 5,
+                                "icon": "https://app.diagrams.net/favicon.ico",
+                                "url": "https://app.diagrams.net",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1154,
+                                "name": "Figma",
+                                "desc": "Figma原型设计",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://static.figma.com/app/icon/1/favicon.png",
+                                "url": "https://www.figma.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1099,
+                                "name": "Mermaid | Diagramming and charting tool",
+                                "desc": "Create diagrams and visualizations using text and code.",
+                                "rate": 5,
+                                "icon": "http://mermaid.js.org/favicon.ico",
+                                "url": "http://mermaid.js.org",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "编码/解码",
+                        "nav": [
+                            {
+                                "id": 1149,
+                                "name": "常用编码加密",
+                                "desc": "在线编码加密工具，包括网址16进制加密、Escape解密工具、Scrypt密码生成、在线htpasswd生成器及Email邮箱地址加密计算工具。保护您的数据，提升网络安全。",
+                                "rate": 5,
+                                "icon": "https://static.json.cn/r/img/favicon/favicon.ico",
+                                "url": "https://www.json.cn/encrypt",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1096,
+                                "name": "MD5在线",
+                                "desc": "在线md5加密，md5解密，md5加密算法，md5加密工具，免费MD5在线加密，MD5在线解密破解，MD5在线查询，免费MD5解密，支持32位MD5&6位MD5 。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://scdn.sojson.com/sojson/favicon16.png",
+                                "url": "https://www.sojson.com/md5",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1095,
+                                "name": "Base64编解码",
+                                "desc": "Base64在线编码解码",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://base64.us/favicon.png",
+                                "url": "https://base64.us",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1094,
+                                "name": "JSON工具",
+                                "desc": "在线,JSON,JSON 校验,格式化,xml转json 工具,在线工具,json视图,可视化,程序,服务器,域名注册,正则表达式,测试,在线json格式化工具,json 格式化,json格式化工具,json字符串格式化,json 在线查看器,json在线,json 在线验证,json tools online,在线文字对比工具",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.bejson.com/favicon.ico",
+                                "url": "https://www.bejson.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://jwt.io/img/favicon/apple-icon-76x76.png",
+                                "name": "JWT解密",
+                                "desc": "jwt 在线解码",
+                                "url": "https://jwt.io",
+                                "rate": 5,
+                                "id": 55,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 1038
+                    },
+                    {
+                        "id": 1091,
+                        "title": "协议",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1093,
+                                "name": "Http在线工具",
+                                "desc": "在线http,http,在线post,http post,get,在线http post/get/put请求测试工具，提供带cookie和header的请求,返回header,提供海外接口测试,生成文档,生成markdown文档,并能生成curl请求",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "http://coolaf.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1092,
+                                "name": "Websocket在线测试",
+                                "desc": "WebSocket 在线测试 工具 物联网",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "http://www.websocket-test.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "在线工具",
+                        "nav": [
+                            {
+                                "id": 1162,
+                                "name": "TD工具箱",
+                                "desc": "TD工具箱 - 在线工具箱网站，免费效率提升神器",
+                                "rate": 5,
+                                "icon": "https://tdtools.link/favicon.ico",
+                                "url": "https://tdtools.link",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1148,
+                                "name": "在线MongoDB Cloud",
+                                "desc": "在线免费MongoDB Cloud",
+                                "rate": 5,
+                                "icon": "https://cloud.mongodb.com/static/images/favicon.ico",
+                                "url": "https://cloud.mongodb.com/v2/68ef888d2595ce51a3b7f871#/clusters",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1090,
+                                "name": "在线工具箱",
+                                "desc": "致力开发即用即走型在线工具，无需客户端在线一键使用。拥有视频工具、音频工具、图片工具、 PDF工具、办公辅助、设计工具、文本工具、数字工具、加密工具、单位转换等等工具。同时拥有良好的用户体验，为您的工作学习提升效率！",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.67tool.com/favicon.ico",
+                                "url": "https://www.67tool.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 1037
+                    }
+                ],
+                "icon": "",
+                "id": 1036
+            },
+            {
+                "title": "其他工具",
+                "nav": [
+                    {
+                        "id": 1085,
+                        "title": "通用工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1225,
+                                "name": "Windows应用安装下载 Scoop",
+                                "desc": "命令行的Windows应用安装下载 Scoop A command-line installer for Windows",
+                                "rate": 5,
+                                "icon": "https://scoop.sh/favicon.ico",
+                                "url": "https://scoop.sh",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1192,
+                                "name": "PDFgear - 免费 PDF 编辑软件和在线工具",
+                                "desc": "借助 PDFgear 的免费工具与软件来在线或离线编辑 PDF，还有合并、分割、转换等多种功能。强大、用户友好的 PDF 解决方案可满足您的所有需求。",
+                                "rate": 5,
+                                "icon": "https://www.pdfgear.com/img/icon.png",
+                                "url": "https://www.pdfgear.com/zh",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1166,
+                                "name": "NATAPP-内网穿透",
+                                "desc": "natapp是基于ngrok的国内高速内网穿透专业服务商",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://cdn.natapp.cn/assets/favicon.ico?version=20250414",
+                                "url": "https://natapp.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1165,
+                                "name": "在线思维导图",
+                                "desc": "在线思维导图工具xmind",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.mindline.cn/res/icon.png",
+                                "url": "https://www.mindline.cn/webapp",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1147,
+                                "name": "PDF工具",
+                                "desc": "iLovePDF is an online service to work with PDF files completely free and easy to use. Merge PDF, split PDF, compress PDF, office to PDF, PDF to JPG and more!",
+                                "rate": 5,
+                                "icon": "https://www.ilovepdf.com/img/app-icon.png",
+                                "url": "https://www.ilovepdf.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1088,
+                                "name": "PDF工具",
+                                "desc": "PDF工具Web Apps by 123apps - 编辑、转换、创建",
+                                "rate": 5,
+                                "icon": "https://123apps.com/static/i/v3/favicon.svg",
+                                "url": "https://123apps.com/cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1087,
+                                "name": "Wormhole - 简单、私密的文件共享",
+                                "desc": "文件传输、文件共享，Wormhole 让你能以端到端加密和自动过期链接的方式分享文件。",
+                                "rate": 5,
+                                "icon": "https://cdn.jsdelivr.net/gh/s422346963/public@image/1784354286531.ico",
+                                "url": "https://wormhole.app",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1086,
+                                "name": "挂梯子",
+                                "desc": "挂上梯子，扬帆出海。梯子导航站——挂梯子。Clash，飞机场，翻墙",
+                                "rate": 5,
+                                "icon": "https://guatizi.com/wp-content/uploads/2023/11/挂梯子appicon.webp",
+                                "url": "https://guatizi.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1198,
+                        "title": "文档工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1200,
+                                "name": "DOCX Editor",
+                                "desc": "免费的在线docx文档编辑",
+                                "rate": 5,
+                                "index": 100,
+                                "icon": "https://www.docx-editor.dev/favicon.ico?favicon.b4b96c99.ico",
+                                "url": "https://www.docx-editor.dev/editor",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1199,
+                                "name": "手写文字生成网站 - 在线生成手写图片与 PDF | handwrite.14790897.xyz",
+                                "desc": "手写文字生成网站，支持多种字体和背景，在线生成高质量手写文字图片与 PDF。适合作业、论文、信件等场景，支持自定义字体、背景与参数调节，轻松生成个性化手写效果。",
+                                "rate": 5,
+                                "index": 101,
+                                "icon": "https://handwrite.sixiangjia.de/icon.svg",
+                                "url": "https://handwrite.sixiangjia.de",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1206,
+                                "name": "Free Online Office Editor — 在线Office工具",
+                                "desc": "Open, view, and edit DOCX, XLSX, PPTX files directly in your browser for free. No upload, no login — your documents stay private. Drag & drop with the browser extension.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://office.ziziyi.com/favicon.ico?favicon.98971a59.ico",
+                                "url": "https://office.ziziyi.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "图片工具",
+                        "nav": [
+                            {
+                                "id": 1215,
+                                "name": "综合图片编辑工具",
+                                "desc": "iLoveIMG是一款在线处理图片文件的网站。我们的服务完全免费，而且使用简便。网站的功能有：压缩图像文件、调整文件尺寸、裁剪文件，以及转换文件格式等！",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.iloveimg.com/img/favicons-img/favicon-16x16.png",
+                                "url": "https://www.iloveimg.com/zh-cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1214,
+                                "name": "在线去全屏水印",
+                                "desc": "使用 Dewatermark AI去水印工具，精准去除图片和视频中的水印、Logo、时间戳和文字，不模糊、不损画质。在线免费去水印。",
+                                "rate": 5,
+                                "icon": "https://assets.dewatermark.ai/images/favicon/favicon.ico",
+                                "url": "https://dewatermark.ai/zh-CN",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1213,
+                                "name": "免费在线水印去除工具",
+                                "desc": "Vidmore 免费在线水印去除器是您去除照片上恼人水印的最佳选择。无限次使用，助您轻松去除各种水印。",
+                                "rate": 5,
+                                "icon": "https://www.vidmore.com/favicon.ico",
+                                "url": "https://www.vidmore.com/zh/watermark-remover/#",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1205,
+                                "name": "抠抠图-抠图软件免费在线AI抠图",
+                                "desc": "永久免费在线AI抠图、免费在线批量抠图，无需专业设计技能，只需轻点鼠标，我们的智能算法即刻为您精准识别图像边缘， 无论是复杂背景还是细腻发丝，都能轻松剥离.",
+                                "rate": 5,
+                                "icon": "https://www.koukoutu.com/icons/57.png",
+                                "url": "https://www.koukoutu.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1083,
+                                "name": "Pixelcut",
+                                "desc": "背景移除工具\nEasy-to-use AI tools to make your photos stand out!",
+                                "rate": 5,
+                                "icon": "https://www.pixelcut.ai/favicon.ico",
+                                "url": "https://www.pixelcut.ai",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1080,
+                                "name": "Free Logo Maker",
+                                "desc": "快速设计制作Logo\nDesign your logo with LogoMakr’s AI logo maker. Create 100% original logos, edit templates, and own your files. Trusted by millions of businesses worldwide.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://logomakr.com/wp-content/uploads/2018/02/cropped-logomaker1-32x32.png",
+                                "url": "https://logomakr.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1079,
+                                "name": "Bigjpg - AI人工智能图片无损放大",
+                                "desc": "Bigjpg - 使用人工智能深度卷积神经网络（CNN）智能无损免费放大图片，可放大4K级超高清分辨率（4000x4000）图片，最大32倍放大,效果秒杀PhotoZoom放大。",
+                                "rate": 5,
+                                "icon": "https://bigjpg.com/htdocs/favicon.ico",
+                                "url": "https://bigjpg.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://tinypng.com/images/apple-touch-icon.png",
+                                "name": "TinyPNG",
+                                "desc": "智能PNG和JPEG压缩，以质量和文件大小的完美平衡来优化您的图像",
+                                "url": "https://tinypng.com",
+                                "rate": 5,
+                                "id": 116,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 1021
+                    },
+                    {
+                        "id": 1175,
+                        "title": "音视频工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1223,
+                                "name": "AI 音频分离与人声提取在线工具 | MediaLab",
+                                "desc": "在线分离人声、伴奏、鼓点、贝斯等音轨。支持音频与视频文件，处理快速、音质高。",
+                                "rate": 5,
+                                "icon": "https://www.media-lab.cn/favicon-32x32.png",
+                                "url": "https://www.media-lab.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1176,
+                                "name": "配音神器pro | 音视频工具",
+                                "desc": "配音神器pro官方网页版，提供数百种情感声音选择。也能音视频处理、压缩、文案提取、视频转音频",
+                                "rate": 5,
+                                "icon": "https://www.peiyinshenqi.com/favicon.ico",
+                                "url": "https://www.peiyinshenqi.com/tools/index",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "辅助工具",
+                        "nav": [
+                            {
+                                "id": 1204,
+                                "name": "免费下载缺失的 DLL 文件 | DLL‑files.com",
+                                "desc": "免费下载缺失的 DLL 文件以修复 DLL 错误。如果您想获得安装 DLL 文件的帮助，DLL‑files.com Client 就是您需要的 DLL fixer。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://cn.dll-files.com/assets/img/favicons/apple-touch-icon-57x57.png",
+                                "url": "https://cn.dll-files.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1191,
+                                "name": "离线包下载",
+                                "desc": "在线获取 VSCode 插件、Chrome 扩展、Docker 镜像的离线安装包",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://lixian.online/favicon.ico?favicon.0fx07q-xft0nm.ico",
+                                "url": "https://lixian.online/chrome",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1170,
+                                "name": "短链接在线生成",
+                                "desc": "低调且方便的短链接在线生成器",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://reurl.cc/favicon.ico",
+                                "url": "https://reurl.cc",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1153,
+                                "name": "地址生成器",
+                                "desc": "地址生成器，包含邮箱、信用卡、详细地址",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://www.meiguodizhi.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1078,
+                                "name": "AI在线生成网站",
+                                "desc": "AI在线生成网站,Your collaborative AI assistant to design, iterate, and scale full-stack applications for the web.",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://v0.app/assets/icon-light-32x32.png",
+                                "url": "https://v0.app",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1077,
+                                "name": "临时邮箱",
+                                "desc": "在线生成临时邮箱、十分钟邮箱（10分钟)、临时邮、临时Email、快速注册Email、24小时Mail，开通邮箱最长支持24小时，支持邮件转发，自动刷新！",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "http://24mail.chacuo.net/favicon.ico",
+                                "url": "http://24mail.chacuo.net",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://static.clewm.net/static/images/favicon.ico",
+                                "name": "草料二维码",
+                                "desc": "用专业的二维码产品帮助企业创造价值",
+                                "url": "https://cli.im/url",
+                                "rate": 5,
+                                "id": 118,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 1020
+                    },
+                    {
+                        "id": 1163,
+                        "title": "系统工具",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1173,
+                                "name": "Office Tool Plus",
+                                "desc": "Office下载激活工具",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.officetool.plus/favicon.ico",
+                                "url": "https://www.officetool.plus",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1164,
+                                "name": "在线显卡测试",
+                                "desc": "是一款网页版显卡性能在线测试网站，能够在线测试电脑和手机GPU显卡性能的网站和测试工具，支持2D、3D图形场景测试以及显卡满载测试，并能够为GPU显卡打出性能测试分数，跑分。",
+                                "rate": 5,
+                                "icon": "http://gpu.jy6d.com/favicon.ico",
+                                "url": "http://gpu.jy6d.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ],
+                "icon": "",
+                "id": 1019
+            }
+        ],
+        "icon": "",
+        "id": 1018
+    },
+    {
+        "title": "学无止境",
+        "nav": [
+            {
+                "id": 1072,
+                "title": "社区相关",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1073,
+                        "title": "社区",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1076,
+                                "name": "帆软学院-培养企业亟需的数据人才",
+                                "desc": "帆软学院专注于培养企业亟需的数据人才。课程方向包括FineReport、FineBI、简道云、FineDataLink、数知鸟、阿米巴、数据分析、Python、Linux、数据库、java、JavaScript等。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://edu.fanruan.com/favicon.ico",
+                                "url": "https://edu.fanruan.com/studypath/finereport",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1075,
+                                "name": "吾爱破解 - 52pojie.cn",
+                                "desc": "吾爱破解论坛深耕软件逆向工程与反病毒技术领域，汇聚众多技术爱好者的智慧与经验，共同探索与分享前沿安全技术和防护策略，构建业内最具影响力的技术交流平台。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.52pojie.cn/favicon.svg",
+                                "url": "https://www.52pojie.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1074,
+                                "name": "阿里云开发者社区-云计算社区-阿里云",
+                                "desc": "阿里云开发者社区覆盖云计算、人工智能、云原生、大数据、数据库、安全、开发、运维等技术领域，为开发者提供分享、交流、学习、认证、实践、活动等一站式服务能力。",
+                                "rate": 5,
+                                "icon": "https://img.alicdn.com/tfs/TB1_ZXuNcfpK1RjSZFOXXa6nFXa-32-32.ico",
+                                "url": "https://developer.aliyun.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "参考文档",
+                "nav": [
+                    {
+                        "id": 1061,
+                        "title": "常用文档",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1212,
+                                "name": "Components - shadcn/ui",
+                                "desc": "Here you can find all the components available in the library. We are working on adding more components.",
+                                "rate": 5,
+                                "icon": "https://ui.shadcn.com/favicon-16x16.png",
+                                "url": "https://ui.shadcn.com/docs/components",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1071,
+                                "name": "Hutool参考文档",
+                                "desc": "Hutool，Java工具集",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.hutool.cn/favicon.ico",
+                                "url": "https://www.hutool.cn/docs/#",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1070,
+                                "name": "微信官方文档 | 微信开放文档",
+                                "desc": "微信开发者平台文档",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico",
+                                "url": "https://developers.weixin.qq.com/doc",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1069,
+                                "name": "Ansible Documentation",
+                                "desc": "Ansible Documentation",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://docs.ansible.com/favicon.ico",
+                                "url": "https://docs.ansible.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1068,
+                                "name": "Gradle",
+                                "desc": "",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://plugins.gradle.org/shared-assets/shared/images/elephant.ico",
+                                "url": "https://plugins.gradle.org",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1067,
+                                "name": "UmiJS - 插件化的企业级前端应用框架",
+                                "desc": "Umi是可扩展的企业级前端应用框架。Umi 以路由为基础的，同时支持配置式路由和约定式路由，保证路由的功能完备，并以此进行功能扩展。然后配以生命周期完善的插件体系，覆盖从源码到构建产物的每个生命周期，支持各种功能扩展和业务需求。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://img.alicdn.com/tfs/TB1YHEpwUT1gK0jSZFhXXaAtVXa-28-27.svg",
+                                "url": "https://umijs.org/zh-CN",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1066,
+                                "name": "Ant Design Vue",
+                                "desc": "An enterprise-class UI components based on Ant Design and Vue",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.antdv.com/favicon.ico",
+                                "url": "https://www.antdv.com/docs/vue/introduce-cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1065,
+                                "name": "Element UI",
+                                "desc": "Element，一套为开发者、设计师和产品经理准备的基于 Vue 2.0 的桌面端组件库",
+                                "rate": 5,
+                                "icon": "https://element.eleme.cn/favicon.ico",
+                                "url": "https://element.eleme.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1064,
+                                "name": ".NET 文档 | Microsoft Learn",
+                                "desc": "了解如何使用 .NET 在任何使用 C#、F# 和 Visual Basic 的平台上创建应用程序。 浏览 API 引用、代码示例、教程以及其他内容。",
+                                "rate": 5,
+                                "index": 100000,
+                                "icon": "https://learn.microsoft.com/favicon.ico",
+                                "url": "https://learn.microsoft.com/zh-cn/dotnet",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1063,
+                                "name": "Spring Boot",
+                                "desc": "Level up your Java code and explore what Spring can do for you.",
+                                "rate": 5,
+                                "icon": "https://spring.io/favicon-32x32.png?v=96334d577af708644f6f0495dd1c7bc8",
+                                "url": "https://spring.io/projects/spring-boot",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1062,
+                                "name": "Seata",
+                                "desc": "Seata 是一款开源的分布式事务解决方案，致力于提供高性能和简单易用的分布式事务服务。Seata 将为用户提供了 AT、TCC、SAGA 和 XA 事务模式，为用户打造一站式的分布式解决方案。",
+                                "rate": 5,
+                                "icon": "https://seata.apache.org/zh-cn/img/seata_logo_small.jpeg",
+                                "url": "https://seata.apache.org/zh-cn/docs/overview/what-is-seata",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1189,
+                        "title": "前端框架",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1190,
+                                "name": "VitePress",
+                                "desc": "VitePress是使用Vue的文档网站开发模板",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://vitepress.dev/vitepress-logo-mini.svg",
+                                "url": "https://vitepress.dev",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "数据库",
+                        "nav": [
+                            {
+                                "icon": "https://labs.mysql.com/common/themes/sakila/favicon.ico",
+                                "name": "MySQL",
+                                "desc": "MySQL数据库服务是一个完全托管的数据库服务，可使用世界上最受欢迎的开源数据库来部署云原生应用程序。 它是百分百由MySQL原厂开发，管理和提供支持",
+                                "url": "https://www.mysql.com/cn",
+                                "rate": 5,
+                                "id": 766,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://avatars3.githubusercontent.com/u/1529926?s=200&v=4",
+                                "name": "redis",
+                                "desc": "Redis 是一个开源（BSD许可）的，内存中的数据结构存储系统，它可以用作数据库、缓存和消息中间件。 它支持多种类型的数据结构",
+                                "url": "http://www.redis.cn",
+                                "rate": 5,
+                                "id": 765,
+                                "tags": [
+                                    {
+                                        "id": "-2",
+                                        "url": "https://redis.io/"
+                                    },
+                                    {
+                                        "id": "-1",
+                                        "url": "http://www.redis.cn/"
+                                    },
+                                    {
+                                        "id": "-3",
+                                        "url": "https://github.com/redis/redis"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 863
+                    },
+                    {
+                        "title": "服务器",
+                        "nav": [
+                            {
+                                "icon": "https://avatars0.githubusercontent.com/u/1412239?s=200&v=4",
+                                "name": "nginx",
+                                "desc": "nginx参考文档",
+                                "url": "https://www.docs4dev.com/docs/zh/nginx/current/reference#toolbar-title",
+                                "rate": 5,
+                                "id": 763,
+                                "tags": [
+                                    {
+                                        "id": "-2",
+                                        "url": "http://nginx.org/en/docs/"
+                                    },
+                                    {
+                                        "id": "-1",
+                                        "url": "https://www.docs4dev.com/docs/zh/nginx/current/reference#toolbar-title"
+                                    },
+                                    {
+                                        "id": "-3",
+                                        "url": "https://github.com/nginx/nginx"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://avatars0.githubusercontent.com/u/1412239?s=200&v=4",
+                                "name": "Nginx开发从入门到精通",
+                                "desc": "Nginx开发从入门到精通",
+                                "url": "http://tengine.taobao.org/book/index.html",
+                                "rate": 5,
+                                "id": 764,
+                                "tags": [
+                                    {
+                                        "id": "-3",
+                                        "url": "https://github.com/taobao/nginx-book"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 864
+                    },
+                    {
+                        "title": "其他文档",
+                        "nav": [
+                            {
+                                "id": 1060,
+                                "name": "Linux命令搜索引擎 命令，Linux Linux命令搜索引擎 命令详解：最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。 -  Linux 命令搜索引擎",
+                                "desc": "Linux命令搜索引擎:最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。 - 最专业的Linux命令大全，内容包含Linux命令手册、详解、学习，值得收藏的Linux命令速查手册。",
+                                "rate": 5,
+                                "icon": "https://git.io/img/favicon.ico",
+                                "url": "https://git.io/linux",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1059,
+                                "name": "西门子官网技术文档资料下载中心-",
+                                "desc": "西门子下载中心提供各种技术文档资料，用户可以通过西门子数字化工业下载中心快捷地查找自身所需文档和资料，包括手册、软件、常问问题、应用文档、样本、证书许可、宣传册、标准等。另外也可访问官方智能回答与自助预约平台-智能小西，或拨打工业自动化热线，获取更多技术支持。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.ad.siemens.com.cn/favicon.ico",
+                                "url": "https://www.ad.siemens.com.cn/download",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1058,
+                                "name": "GPT-SoVITS指南 · 语雀",
+                                "desc": "GPT-SoVITS指南",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://mdn.alipayobjects.com/huamei_0prmtq/afts/img/A*sRUdR543RjcAAAAAAAAAAAAADvuFAQ/original",
+                                "url": "https://www.yuque.com/baicaigongchang1145haoyuangong/ib3g1e",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1057,
+                                "name": "Flowable BPMN 用户手册 (v 6.3.0)",
+                                "desc": "",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://tkjohn.github.io/flowable-userguide/#_introduction",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://github.com/favicon.ico",
+                                "name": "GitHub Docs",
+                                "desc": "github 官方帮助文档",
+                                "url": "https://help.github.com/cn",
+                                "rate": 5,
+                                "id": 759,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://github.com/favicon.ico",
+                                "name": "Docker — 从入门到实践",
+                                "desc": "Docker — 从入门到实践",
+                                "url": "https://yeasy.gitbooks.io/docker_practice",
+                                "rate": 5,
+                                "id": 754,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/linux/linux.png",
+                                "name": "Linux 常用命令参考手册",
+                                "desc": "Linux 常用命令参考手册",
+                                "url": "https://github.com/xjh22222228/linux-manual",
+                                "rate": 5,
+                                "id": 771,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://wangchujiang.com/linux-command/img/favicon.ico",
+                                "name": "linux-command",
+                                "desc": "Linux命令大全搜索工具，内容包含Linux命令手册、详解、学习、搜集",
+                                "url": "https://git.io/linux",
+                                "rate": 5,
+                                "id": 774,
+                                "tags": [
+                                    {
+                                        "id": "-3",
+                                        "url": "https://github.com/jaywcjlove/linux-command"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://avatars2.githubusercontent.com/u/11618545?s=200&v=4",
+                                "name": "vimrc",
+                                "desc": "vim配置参考手册",
+                                "url": "https://github.com/amix/vimrc",
+                                "rate": 5,
+                                "id": 778,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.jenkins.io/zh/sites/default/files/jenkins_favicon.ico",
+                                "name": "Jenkins",
+                                "desc": "Jenkins是开源CI&CD软件领导者， 提供超过1000个插件来支持构建、部署、自动化， 满足任何项目的需要",
+                                "url": "https://www.jenkins.io/zh",
+                                "rate": 5,
+                                "id": 779,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 861
+                    }
+                ],
+                "icon": "",
+                "id": 860
+            },
+            {
+                "id": 1054,
+                "title": "开源项目",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1055,
+                        "title": "通用",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1056,
+                                "name": "ruoyi-vue-pro 开发指南",
+                                "desc": "RuoYi-Vue 全新 Pro 版本，优化重构所有功能。基于 Spring Boot + MyBatis Plus + Vue & Element 实现的后台管理系统 + 微信小程序，支持 RBAC 动态权限、数据权限、SaaS 多租户、Activiti + Flowable 工作流、三方登录、支付、短信、商城等功能。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://doc.iocoder.cn/img/favicon.ico",
+                                "url": "https://doc.iocoder.cn",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "面试学习",
+                "nav": [
+                    {
+                        "id": 1051,
+                        "title": "学习网站",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1053,
+                                "name": "网易公开课",
+                                "desc": "网易公开课汇集清华、北大、哈佛、耶鲁等世界名校共上千门课程，覆盖科学、经济、人文、哲学等22个领域，在这里你可以开拓视野看世界，获取有深度的好知识。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://c.open.163.com/favicon.ico",
+                                "url": "https://open.163.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1052,
+                                "name": "慕课网-程序员的梦工厂",
+                                "desc": "慕课网（IMOOC）是IT技能学习平台。慕课网(IMOOC)课程涉及JAVA、前端、Python、大数据等60类主流技术语言，覆盖了面试就业、职业成长、自我提升等需求场景，帮助用户实现从技能提升到岗位提升的能力闭环。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.imooc.com/static/img/common/touch-icon-ipad.png",
+                                "url": "https://www.imooc.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1048,
+                        "title": "面试突击",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1050,
+                                "name": "Java八股文",
+                                "desc": "面试八股文",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://github.githubassets.com/favicons/favicon.svg",
+                                "url": "https://github.com/apachecn/baguwen-wiki/blob/master/README.md",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1049,
+                                "name": "Java面试突击",
+                                "desc": "Java面试突击",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://www.javacn.site",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "title": "面试刷题",
+                        "nav": [
+                            {
+                                "icon": "https://static.leetcode-cn.com/cn-assets/icons/favicon-96x96.png",
+                                "name": "LeetCode",
+                                "desc": "提高你的编码技能，快速找到一份工作。这是扩展你知识和为下一次面试做好准备的最佳地方。",
+                                "url": "https://leetcode-cn.com",
+                                "rate": 5,
+                                "id": 794,
+                                "tags": [
+                                    {
+                                        "id": "-2",
+                                        "url": "https://leetcode.com/"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.nowcoder.com/favicon.ico",
+                                "name": "牛客网",
+                                "desc": "牛客网是互联网求职神器，C++、Java、前端、产品、运营技能学习/备考/求职题库",
+                                "url": "https://www.nowcoder.com",
+                                "rate": 5,
+                                "id": 795,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://cyc-1256109796.cos.ap-guangzhou.myqcloud.com/LogoMakr_1J56bI.png",
+                                "name": "CS-Notes",
+                                "desc": "技术面试必备基础知识、Leetcode、计算机操作系统、计算机网络、系统设计、Java、Python、C++",
+                                "url": "https://cyc2018.github.io/CS-Notes",
+                                "rate": 5,
+                                "id": 796,
+                                "tags": [
+                                    {
+                                        "id": "-3",
+                                        "url": "https://github.com/CyC2018/CS-Notes"
+                                    }
+                                ],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://visualgo.net/img/favicon.png",
+                                "name": "数据结构和算法动态可视化",
+                                "desc": "数据结构和算法动态可视化",
+                                "url": "https://visualgo.net/zh",
+                                "rate": 5,
+                                "id": 797,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://github.com/favicon.ico",
+                                "name": "algorithm-pattern",
+                                "desc": "算法模板，最科学的刷题方式，最快速的刷题路径，你值得拥有~",
+                                "url": "https://github.com/greyireland/algorithm-pattern",
+                                "rate": 5,
+                                "id": 798,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 858
+                    }
+                ],
+                "icon": "",
+                "id": 857
+            }
+        ],
+        "icon": "",
+        "id": 856
+    },
+    {
+        "title": "运营相关",
+        "nav": [
+            {
+                "id": 1039,
+                "title": "控制台",
+                "icon": "",
+                "nav": [
+                    {
+                        "id": 1040,
+                        "title": "控制台",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1197,
+                                "name": "Digitalplat免费域名",
+                                "desc": "控制台：digitalplat免费域名",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://dash.domain.digitalplat.org/dashboard",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1188,
+                                "name": "Neon",
+                                "desc": "免费的PostgreSQL数据库",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://console.neon.tech/resources/8fkqt/login/custom-theme-keycloakify/dist/favicon.ico?new",
+                                "url": "https://console.neon.tech",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1184,
+                                "name": "Supabase",
+                                "desc": "Supabase免费数据库控制台",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://supabase.com/dashboard/favicon/apple-icon-57x57.png",
+                                "url": "https://supabase.com/dashboard",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1047,
+                                "name": "Cloudflare",
+                                "desc": "使员工、应用程序和网络在任何地方都更快、更安全，同时降低复杂性和成本。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://www.cloudflare-cn.com/favicon.ico",
+                                "url": "https://www.cloudflare-cn.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1046,
+                                "name": "TiDB Cloud",
+                                "desc": "Build MySQL apps faster and cheaper with TiDB Serverless. Enjoy a generous free tier, auto-scaling, AI-assisted SQL, built-in monitoring, and seamless integrations. Start free today — no credit card required!",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://auth.tidbcloud.com/favicon-48x48.ico",
+                                "url": "https://auth.tidbcloud.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1045,
+                                "name": "微信公众平台",
+                                "desc": "微信公众平台，给个人、企业和组织提供业务服务与用户管理能力的全新服务平台。",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico",
+                                "url": "https://mp.weixin.qq.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1196,
+                                "name": "Namesilo域名出售",
+                                "desc": "域名出售网站",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://www.namesilo.com",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1181,
+                        "title": "管理板",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1203,
+                                "name": "魔戒机场",
+                                "desc": "魔戒机场发布页",
+                                "rate": 5,
+                                "icon": "http://xn--xnun88j.net/favicon.ico",
+                                "url": "http://魔戒.net",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1183,
+                                "name": "赔钱机场",
+                                "desc": "赔钱机场登录页",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "",
+                                "url": "https://xn--cp3a08l.com/dashboard",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1211,
+                                "name": "NanoCloud",
+                                "desc": "￥1/月机场，节点可用性不保证",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://edu.uodoo.bid/favicon.ico",
+                                "url": "https://edu.uodoo.bid",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    },
+                    {
+                        "id": 1186,
+                        "title": "我的网站",
+                        "icon": "",
+                        "nav": [
+                            {
+                                "id": 1169,
+                                "name": "NavBin",
+                                "desc": "控制台navbin后台后端配置",
+                                "rate": 5,
+                                "icon": "",
+                                "url": "https://navbin.vercel.app/system/web",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "id": 1187,
+                                "name": "Bin-Docs",
+                                "desc": "我的文档站",
+                                "rate": 5,
+                                "index": null,
+                                "icon": "https://docs-bin.vercel.app/favicon.ico",
+                                "url": "https://docs-bin.vercel.app",
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "title": "运营相关",
+                "nav": [
+                    {
+                        "title": "运营相关",
+                        "nav": [
+                            {
+                                "icon": "https://tongji.baidu.com/favicon.ico",
+                                "name": "百度统计",
+                                "desc": "全球最大的中文网站流量分析平台，帮助企业收集网站访问数据，提供流量趋势、来源分析...",
+                                "url": "https://tongji.baidu.com",
+                                "rate": 5,
+                                "id": 826,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.umeng.com/favicon.ico",
+                                "name": "CNZZ",
+                                "desc": "CNZZ数据专家是全球最大的中文网站统计分析平台，为各类网站提供免费、安全、稳定",
+                                "url": "http://www.cnzz.com",
+                                "rate": 5,
+                                "id": 827,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.baidu.com/img/baidu.svg",
+                                "name": "百度搜索资源平台",
+                                "desc": "百度搜索资源平台_让网站更具价值",
+                                "url": "https://ziyuan.baidu.com",
+                                "rate": 5,
+                                "id": 828,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.wjx.cn/favicon.ico",
+                                "name": "问卷星",
+                                "desc": "免费使用问卷星创建问卷调查、在线考试、360度评估等应用",
+                                "url": "https://www.wjx.cn",
+                                "rate": 5,
+                                "id": 829,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://gd-assets.jinshujucdn.com/favicon.ico",
+                                "name": "金数据",
+                                "desc": "金数据是人人可用的在线表单工具，帮助用户收集和管理日常工作中的数据，提升工作效率",
+                                "url": "https://jinshuju.net",
+                                "rate": 5,
+                                "id": 830,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://ssl.gstatic.com/analytics/20201013-01/app/static/analytics_standard_icon.png",
+                                "name": "Google Analytics",
+                                "desc": "Google Analytics是一个收集数据并将其分析整理成实用报告的平台",
+                                "url": "https://analytics.google.com",
+                                "rate": 5,
+                                "id": 831,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://mta.qq.com/mta/resource/imgcache/images/favicon.ico",
+                                "name": "腾讯移动分析",
+                                "desc": "腾讯移动分析是腾讯数据云，腾讯大数据战略的核心产品，提供app应用的移动统计分析，支持android/iOS平台，实现用户画像、数据可视化、数据挖掘、渠道效果分析等综合数据服务",
+                                "url": "https://mta.qq.com/mta",
+                                "rate": 5,
+                                "id": 832,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            },
+                            {
+                                "icon": "https://www.google.com/favicon.ico",
+                                "name": "Google Adsense",
+                                "desc": "",
+                                "url": "https://www.google.com/adsense",
+                                "rate": 5,
+                                "id": 833,
+                                "tags": [],
+                                "top": false,
+                                "ownVisible": false
+                            }
+                        ],
+                        "icon": "",
+                        "id": 849
+                    }
+                ],
+                "icon": "",
+                "id": 848
+            }
+        ],
+        "icon": "",
+        "id": 847
+    }
+]

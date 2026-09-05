@@ -1,0 +1,62 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* 对齐原版 ng-zorro 蓝 */
+  --color-primary: #177ddc;
+  --color-primary-hover: #40a9ff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  @apply bg-zinc-100 text-zinc-800 antialiased dark:bg-zinc-900 dark:text-zinc-200;
+}
+
+/* 细滚动条 */
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+*::-webkit-scrollbar-thumb {
+  @apply rounded bg-zinc-300 dark:bg-zinc-600;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 通用输入控件 */
+.nz-input {
+  @apply w-full rounded-md border border-zinc-300 bg-white px-3 py-2 text-sm outline-none
+    focus:border-primary dark:border-zinc-700 dark:bg-zinc-800;
+}
+
+.nz-btn {
+  @apply inline-flex cursor-pointer items-center justify-center gap-1 rounded-md border
+    border-zinc-300 bg-white px-3 py-1.5 text-sm transition-colors
+    hover:border-primary hover:text-primary disabled:cursor-not-allowed disabled:opacity-50
+    dark:border-zinc-700 dark:bg-zinc-800;
+}
+
+.nz-btn-primary {
+  @apply border-primary bg-primary text-white hover:border-primary-hover hover:bg-primary-hover hover:text-white;
+}
+
+.nz-btn-danger {
+  @apply border-red-300 text-red-500 hover:border-red-500 hover:text-red-600;
+}
+
+.nz-label {
+  @apply mb-1 block text-xs text-zinc-500 dark:text-zinc-400;
+}
+
+/* 卡片 hover 阴影 */
+.nav-card {
+  @apply relative cursor-pointer rounded-lg border border-zinc-200 bg-white transition-all
+    hover:border-primary/50 hover:shadow-md dark:border-zinc-700/70 dark:bg-zinc-800;
+}
