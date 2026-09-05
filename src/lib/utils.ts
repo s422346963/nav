@@ -92,14 +92,12 @@ export function removeTrailingSlashes(url: string | null | undefined): string {
  * 站内模糊搜索（对齐原 fuzzySearch）。
  * 返回扁平网站列表，不做高亮标记（高亮由组件按 keyword 计算）。
  * - Current 类型：由调用方传入当前分类子树作为 navList
- * - Tag 类型：需在 opts.tagList 传入标签表
  * - Class 类型：仅命中分类名，收录该分类下所有网站
  */
 export function fuzzySearch(
   navList: any[],
   keyword: string,
   type: SearchType = SearchType.All,
-  opts?: { tagList?: { id: number; name: string }[] },
 ): IWebProps[] {
   if (!keyword.trim()) return []
   keyword = keyword.toLowerCase()
@@ -129,12 +127,6 @@ export function fuzzySearch(
         return String(web.id) === keyword
       case SearchType.Quick:
         return !!web.top && name.includes(keyword)
-      case SearchType.Tag:
-        return (web.tags || []).some(
-          (t) =>
-            opts?.tagList?.find((x) => x.id === t.id)?.name?.toLowerCase() ===
-            keyword,
-        )
       default:
         return name.includes(keyword) || desc.includes(keyword) || url.includes(keyword)
     }

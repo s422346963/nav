@@ -3,8 +3,15 @@
 
 import type { GithubConfig } from '@/store/useNavStore'
 
-const DB_PATH = 'data/db.json'
-const SETTINGS_PATH = 'data/settings.json'
+const DB_PATH = 'public/data/db.json'
+const SETTINGS_PATH = 'public/data/settings.json'
+
+/** 从 GitHub 仓库 URL 解析 owner/repo（支持 .git 后缀与 git@ 形式） */
+export function parseRepoUrl(url?: string): { owner: string; repo: string } | null {
+  if (!url) return null
+  const m = url.trim().match(/github\.com[/:]([^/]+)\/([^/#?]+?)(?:\.git)?(?:[/#?].*)?$/i)
+  return m ? { owner: m[1], repo: m[2] } : null
+}
 
 function base64(content: string): string {
   const bytes = new TextEncoder().encode(content)
@@ -91,6 +98,50 @@ export function uploadDb(options: {
     path: DB_PATH,
     content: JSON.stringify(options.navs),
   })
+}
+
+/** 上传图片到仓库（Contents API，二进制 base64），返回 CDN 地址 */
+export async function uploadImage(options: {
+  config: GithubConfig
+  token: string
+  file: File
+  pathPrefix?: string
+}): Promise<{ ok: boolean; url?: string; message: string }> {
+  const { config, token, file } = options
+  if (!config.owner || !config.repo) {
+    return { ok: false, message: '请先在「后台 → 设置」中配置图床仓库（imageRepoUrl）' }
+  }
+  const dataUrl = await new Promise<string>((resolve, reject) => {
+    const reader = new FileReader()
+    reader.onload = () => resolve(reader.result as string)
+    reader.onerror = () => reject(new Error('读取文件失败'))
+    reader.readAsDataURL(file)
+  })
+  const content = dataUrl.split(',')[1]
+  const pathPrefix = options.pathPrefix || '_upload'
+  const path = `${pathPrefix}/${Date.now()}-${file.name.replace(/[^\w.-]/g, '_')}`
+  const res = await fetch(
+    `https://api.github.com/repos/${config.owner}/${config.repo}/contents/${path}`,
+    {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${token.trim()}`,
+        Accept: 'application/vnd.github+json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        message: 'upload image',
+        content,
+        branch: config.branch,
+      }),
+    },
+  )
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}))
+    return { ok: false, message: data?.message || `上传失败（${res.status}）` }
+  }
+  const cdnUrl = `https://cdn.jsdelivr.net/gh/${config.owner}/${config.repo}@${config.branch}/${path}`
+  return { ok: true, url: cdnUrl, message: '上传成功' }
 }
 
 export function uploadSettings(options: {

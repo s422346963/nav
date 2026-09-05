@@ -6,6 +6,7 @@
 import { useEffect, useState } from 'react'
 import { Home, Menu, Moon, Sun } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { useNavStore } from '@/store/useNavStore'
 import { useThemeStore } from '@/store/useThemeStore'
 import { cn } from '@/lib/utils'
 
@@ -21,6 +22,7 @@ export default function Header({
 }) {
   const dark = useThemeStore((s) => s.dark)
   const toggleDark = useThemeStore((s) => s.toggle)
+  const showThemeToggle = useNavStore((s) => s.settings.showThemeToggle)
   const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
 
@@ -74,15 +76,17 @@ export default function Header({
 
       {/* 右侧功能按钮（纯图标，title 提示） */}
       <div className="ml-auto flex items-center gap-1">
-        <button
-          className={cn(btn, 'gap-1.5 px-3 text-sm font-medium')}
-          title="切换主题"
-          aria-label="切换主题"
-          onClick={toggleDark}
-        >
-          {dark ? <Sun size={18} /> : <Moon size={18} />}
-          <span>主题</span>
-        </button>
+        {showThemeToggle && (
+          <button
+            className={cn(btn, 'gap-1.5 px-3 text-sm font-medium')}
+            title="切换主题"
+            aria-label="切换主题"
+            onClick={toggleDark}
+          >
+            {dark ? <Sun size={18} /> : <Moon size={18} />}
+            <span>主题</span>
+          </button>
+        )}
       </div>
     </header>
   )

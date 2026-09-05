@@ -1,23 +1,7 @@
 // 开源项目，未经作者同意，不得以抄袭/复制代码/修改源代码版权信息。
 // 移植自 navbin/src/types/index.ts，仅保留 Side 主题所需模型。
 
-export type ICardType =
-  | 'standard'
-  | 'column'
-  | 'example'
-  | 'retro'
-  | 'original'
-  | 'poster'
-  | 'icon'
-
 export type OverType = 'overflow' | 'ellipsis'
-
-/** 前台权限动作 */
-export enum ActionType {
-  Create = 1,
-  Edit = 2,
-  Delete = 3,
-}
 
 /** 置顶主题，Side = 1 */
 export enum TopType {
@@ -79,14 +63,6 @@ export interface ImageProps {
   src: string
 }
 
-export interface ITagPropValues {
-  id: number
-  name: string
-  color: string
-  desc: string
-  isInner: boolean
-}
-
 export interface ISearchItemProps {
   name: string
   icon: string
@@ -105,28 +81,26 @@ export interface ISearchProps {
 
 export interface ISettings {
   favicon: string
-  language: string
   title: string
-  description: string
-  keywords: string
-  theme: string
-  footerContent: string
-  headerContent: string
   showGithub: boolean
-  showRate: boolean
   showCopy?: boolean
   showThemeToggle: boolean
-  openSearch: boolean
   createWebKey: string
-  logo: string
-  darkLogo: string
-  userActions: ActionType[]
+  /** 侧边栏品牌 logo，留空回退 favicon */
+  sideLogo: string
   gitHubCDN: string
+  /** 数据仓库地址（GitHub URL），后台可改，优先于 localStorage 配置 */
+  gitRepoUrl: string
+  /** 图床仓库地址（GitHub URL），留空则使用数据仓库 _upload/ 目录 */
+  imageRepoUrl: string
+  /** 数据仓库分支 */
+  branch: string
+  /** 图床仓库分支，留空回退 branch */
+  imageBranch: string
+  /** 网站信息抓取 API 服务地址 */
+  apiUrl: string
 
   sideTitle: string
-  sideDocTitle: string
-  sideCardStyle: ICardType
-  sideFooterHTML: string
   sideCollapsed: boolean
   sideThemeImages: ImageProps[]
   sideThemeHeight: number

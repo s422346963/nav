@@ -16,18 +16,14 @@ import { WebIcon } from './ui'
 export const TYPE_OPTIONS = [
   { value: SearchType.All, label: '综合' },
   { value: SearchType.Class, label: '分类' },
-  { value: SearchType.Tag, label: '标签' },
   { value: SearchType.Title, label: '标题' },
   { value: SearchType.Desc, label: '描述' },
   { value: SearchType.Url, label: '链接' },
   { value: SearchType.Current, label: '当前' },
-  { value: SearchType.Quick, label: '快捷' },
-  { value: SearchType.Id, label: 'ID' },
 ]
 
 export default function SearchBar() {
   const search = useNavStore((s) => s.search)
-  const settings = useNavStore((s) => s.settings)
   const [params, setParams] = useSearchParams()
   const inputRef = useRef<HTMLInputElement>(null)
   const [keyword, setKeyword] = useState(params.get('q') || '')
@@ -58,8 +54,6 @@ export default function SearchBar() {
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
   }, [])
-
-  if (!settings.openSearch) return null
 
   const sType = Number(params.get('type')) || SearchType.All
 

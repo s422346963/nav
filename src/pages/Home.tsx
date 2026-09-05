@@ -16,9 +16,9 @@ import PinnedList from '@/components/PinnedList'
 import ClassTabs from '@/components/ClassTabs'
 import WebGroups from '@/components/WebGroups'
 import Card from '@/components/Card'
-import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 import BackTop from '@/components/BackTop'
+
 import EditWebModal from '@/components/EditWebModal'
 import EditClassModal from '@/components/EditClassModal'
 import MoveWebModal from '@/components/MoveWebModal'
@@ -60,7 +60,6 @@ export default function Home() {
 
   const { oneIndex, twoIndex } = getClassById(navs, id)
   const currentTwo = navs[oneIndex]?.nav?.[twoIndex]
-  const tagList = useNavStore((s) => s.tagList)
   const groups = useMemo(() => (q ? [] : currentTwo?.nav || []), [q, currentTwo])
   const searchResults = useMemo(() => {
     if (!q) return []
@@ -68,8 +67,8 @@ export default function Home() {
     if (sType === SearchType.Current) {
       return fuzzySearch(currentTwo?.nav || [], q, SearchType.All)
     }
-    return fuzzySearch(navs, q, sType, { tagList })
-  }, [q, sType, navs, currentTwo, tagList])
+    return fuzzySearch(navs, q, sType)
+  }, [q, sType, navs, currentTwo])
 
   // 侧栏展开/收起（桌面收起为滑出，移动端为抽屉）
   const [sidebarOpen, setSidebarOpen] = useState(true)
@@ -94,7 +93,6 @@ export default function Home() {
         toast.info('登录后才能添加网站')
         return
       }
-      if (!useNavStore.getState().permissions().create) return
       openEditWeb(undefined, groups[0]?.id)
     }
     window.addEventListener('keydown', handler)
@@ -135,16 +133,14 @@ export default function Home() {
         {/* 内容区 */}
         <div className="flex flex-col gap-4 px-2.5 pb-6 pt-5">
           {q ? (
-            <SearchResults results={searchResults} keyword={q} cardStyle={settings.sideCardStyle} />
+            <SearchResults results={searchResults} keyword={q} />
           ) : (
             <>
               <PinnedList />
               {groups.length > 0 && <ClassTabs groups={groups} />}
-              <WebGroups groups={groups} cardStyle={settings.sideCardStyle} />
+              <WebGroups groups={groups} />
             </>
           )}
-
-          <Footer />
         </div>
       </main>
 
@@ -161,11 +157,9 @@ export default function Home() {
 function SearchResults({
   results,
   keyword,
-  cardStyle,
 }: {
   results: IWebProps[]
   keyword: string
-  cardStyle: any
 }) {
   if (results.length === 0) {
     return <div className="py-16 text-center text-sm text-zinc-400">未找到「{keyword}」相关网站</div>
@@ -177,7 +171,7 @@ function SearchResults({
       </div>
       <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {results.map((web) => (
-          <Card key={web.id} web={web} cardStyle={cardStyle} keyword={keyword} />
+          <Card key={web.id} web={web} keyword={keyword} />
         ))}
       </div>
     </div>

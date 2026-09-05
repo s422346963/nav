@@ -6,16 +6,14 @@ import { ChevronDown, ChevronRight, Plus } from 'lucide-react'
 import { useNavStore } from '@/store/useNavStore'
 import { useModalStore } from '@/store/useModalStore'
 import { cn } from '@/lib/utils'
-import type { ICardType, INavThreeProp } from '@/types/nav'
+import type { INavThreeProp } from '@/types/nav'
 import Card from './Card'
 
 export default function WebGroups({
   groups,
-  cardStyle,
   keyword,
 }: {
   groups: INavThreeProp[]
-  cardStyle: ICardType
   keyword?: string
 }) {
   const updateClass = useNavStore((s) => s.updateClass)
@@ -60,20 +58,9 @@ export default function WebGroups({
             </div>
 
             {!collapsed && (
-              <div
-                className={cn(
-                  cardStyle === 'icon'
-                    ? 'flex flex-wrap gap-x-5 gap-y-3'
-                    : 'grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4',
-                )}
-              >
+              <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {group.nav.map((web) => (
-                  <Card
-                    key={web.id}
-                    web={web}
-                    cardStyle={cardStyle}
-                    keyword={keyword}
-                  />
+                  <Card key={web.id} web={web} keyword={keyword} />
                 ))}
               </div>
             )}

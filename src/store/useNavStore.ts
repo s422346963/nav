@@ -6,19 +6,17 @@ import { create } from 'zustand'
 import type {
   INavProps,
   ISettings,
-  ITagPropValues,
   ISearchProps,
   IWebProps,
 } from '@/types/nav'
-import { ActionType } from '@/types/nav'
 import { dfsNavs, filterLoginData, cleanWebAttrs, getClassById } from '@/lib/dfs'
 import {
   normalizeNavs,
   normalizeSettings,
-  normalizeTags,
   normalizeSearch,
   DEFAULT_SORT_INDEX,
 } from '@/lib/normalize'
+import { parseRepoUrl } from '@/lib/github'
 import { sortByIndex } from '@/lib/utils'
 import { toast } from './toast'
 
@@ -54,18 +52,9 @@ function saveGithubConfig(cfg: GithubConfig) {
   localStorage.setItem('GITHUB_CONFIG', JSON.stringify(cfg))
 }
 
-/** 纯函数权限计算（选择器里禁止调用返回新对象的方法，需在组件层 useMemo） */
-export function getPermissions(userActions: ActionType[]) {
-  const create = userActions.includes(ActionType.Create)
-  const edit = userActions.includes(ActionType.Edit)
-  const del = userActions.includes(ActionType.Delete)
-  return { create, edit, del, ok: create || edit || del }
-}
-
 interface NavState {
   navs: INavProps[]
   settings: ISettings
-  tagList: ITagPropValues[]
   search: ISearchProps
   loaded: boolean
   token: string
@@ -91,7 +80,6 @@ interface NavState {
   nextId: () => number
 
   setSettings: (patch: Partial<ISettings>) => void
-  setTagList: (tags: ITagPropValues[]) => void
 }
 
 function getToken(): string {
@@ -124,7 +112,6 @@ function persistSettings(settings: ISettings) {
 export const useNavStore = create<NavState>((set, get) => ({
   navs: [],
   settings: normalizeSettings(),
-  tagList: [],
   search: normalizeSearch({}, {}),
   loaded: false,
   token: getToken(),
@@ -137,16 +124,14 @@ export const useNavStore = create<NavState>((set, get) => ({
 
   async init() {
     // 1. 拉取基础数据
-    const [rawNavs, rawSettings, rawTags, rawSearch] = await Promise.all([
+    const [rawNavs, rawSettings, rawSearch] = await Promise.all([
       fetchJson('db.json'),
       fetchJson('settings.json'),
-      fetchJson('tag.json'),
       fetchJson('search.json'),
     ])
 
     // 2. 规范化
     const settings = normalizeSettings(rawSettings)
-    const tagList = normalizeTags(rawTags)
     const search = normalizeSearch(rawSearch, settings)
     let navsData = normalizeNavs(rawNavs, settings)
 
@@ -193,16 +178,29 @@ export const useNavStore = create<NavState>((set, get) => ({
     // 5. 未登录过滤 ownVisible，并补 breadcrumb/tags
     const display = filterLoginData(navs, isLogin)
 
+    // 6. 仓库配置：settings.json 里的 gitRepoUrl/branch 优先于 localStorage 手动配置
+    const ghConfig = (() => {
+      const repo = parseRepoUrl(finalSettings.gitRepoUrl)
+      if (repo) {
+        return {
+          owner: repo.owner,
+          repo: repo.repo,
+          branch: finalSettings.branch || 'main',
+        }
+      }
+      return getGithubConfig()
+    })()
+
     set({
       navs: display,
       settings: finalSettings,
-      tagList,
       search,
       loaded: true,
       token,
       isLogin,
+      githubConfig: ghConfig,
     })
-    document.title = finalSettings.sideDocTitle || finalSettings.title
+    document.title = finalSettings.title
   },
 
   async login(accessToken) {
@@ -215,6 +213,7 @@ export const useNavStore = create<NavState>((set, get) => ({
         return false
       }
       localStorage.setItem(TOKEN_KEY, accessToken.trim())
+      set({ token: accessToken.trim(), isLogin: true })
       return true
     } catch (e: any) {
       toast.error(`Token 校验失败：${e.message}`)
@@ -229,7 +228,9 @@ export const useNavStore = create<NavState>((set, get) => ({
   },
 
   permissions() {
-    return getPermissions(get().settings.userActions)
+    // 访客完全只读，登录用户拥有全部写权限
+    const ok = get().isLogin
+    return { create: ok, edit: ok, del: ok, ok }
   },
 
   updateWeb(oldId, newData) {
@@ -316,8 +317,8 @@ export const useNavStore = create<NavState>((set, get) => ({
   },
 
   moveNodes(ids, targetId) {
-    const navsData: any[] = JSON.parse(JSON.stringify(get().navs))
     const removed: any[] = []
+    const navsData: any[] = JSON.parse(JSON.stringify(get().navs))
 
     // 递归摘除节点（网站或分类）
     function remove(arr: any[], parent: any): void {
@@ -333,9 +334,10 @@ export const useNavStore = create<NavState>((set, get) => ({
     }
     remove(navsData, null)
 
-    // 找目标分类，插入头部并重排
+    // 找目标分类，插入头部并重排。
+    // 注意：dfsNavs 内部会深拷贝并返回新树，必须使用其返回值
     let ok = false
-    dfsNavs({
+    const updated = dfsNavs({
       navs: navsData,
       callback(item) {
         if (item.id === targetId) {
@@ -352,8 +354,8 @@ export const useNavStore = create<NavState>((set, get) => ({
     })
 
     if (ok) {
-      set({ navs: navsData })
-      persistNavs(navsData)
+      set({ navs: updated })
+      persistNavs(updated)
     } else {
       toast.error('未找到目标分类')
     }
@@ -382,13 +384,7 @@ export const useNavStore = create<NavState>((set, get) => ({
     if (get().isLogin) {
       persistSettings(next)
     }
-    document.title = next.sideDocTitle || next.title
-  },
-
-  setTagList(tags) {
-    set({ tagList: tags })
-    // 标签不进 db.json，暂存 localStorage 供会话使用
-    localStorage.setItem('TAGS_DB', JSON.stringify(tags))
+    document.title = next.title
   },
 }))
 

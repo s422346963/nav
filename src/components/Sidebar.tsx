@@ -10,8 +10,10 @@ import {
   Code2,
   FlaskConical,
   Gamepad2,
+  House,
   Image,
   Lock,
+  LogOut,
   Newspaper,
   Plane,
   Settings,
@@ -21,6 +23,7 @@ import {
 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useNavStore } from '@/store/useNavStore'
+import { ConfirmModal } from '@/components/ui'
 import { cn } from '@/lib/utils'
 import type { INavProps, INavTwoProp } from '@/types/nav'
 import type { LucideIcon } from 'lucide-react'
@@ -45,6 +48,7 @@ export default function Sidebar({
   menu,
   activeMenuKey,
   onMenuSelect,
+  showLogout = false,
 }: {
   currentOneId: number | undefined
   currentTwoId: number | undefined
@@ -55,15 +59,19 @@ export default function Sidebar({
   menu?: SidebarMenuItem[]
   activeMenuKey?: string
   onMenuSelect?: (key: string) => void
+  /** 底部显示"退出登录"入口（后台管理页使用） */
+  showLogout?: boolean
 }) {
   const navs = useNavStore((s) => s.navs)
+  const isLogin = useNavStore((s) => s.isLogin)
+  const [confirmLogout, setConfirmLogout] = useState(false)
   const settings = useNavStore((s) => s.settings)
   const navigate = useNavigate()
   const [expanded, setExpanded] = useState<Set<number>>(new Set())
 
   // 品牌区：logo + 标题（从顶栏移入）。收起时只留 logo 居中
   const brandText =
-    (settings.sideTitle || settings.title || '').trim().split(/\s/)[0] || '发现导航'
+    (settings.sideTitle || settings.title || '').trim().split(/\s/)[0] || '路标导航'
 
   const brand = (collapsed: boolean) => (
     <Link
@@ -74,9 +82,9 @@ export default function Sidebar({
         collapsed ? 'justify-center' : 'gap-2.5 px-5',
       )}
     >
-      {settings.logo || settings.favicon ? (
+      {settings.sideLogo || settings.favicon ? (
         <img
-          src={settings.logo || settings.favicon}
+          src={settings.sideLogo || settings.favicon}
           className="h-9 w-9 shrink-0 rounded-lg object-contain"
           alt="logo"
         />
@@ -218,17 +226,50 @@ export default function Sidebar({
 
       {/* 底部固定入口（对齐参考站 sidebar-footer） */}
       <div className="border-t border-zinc-200 py-2 dark:border-zinc-700/70">
-        <button
-          title={collapsed ? '后台管理' : undefined}
-          className={cn(
-            'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-zinc-200',
-            collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
-          )}
-          onClick={goSystem}
-        >
-          <Settings size={15} className="shrink-0 opacity-70" />
-          {!collapsed && <span className="flex-1 truncate text-left">后台管理</span>}
-        </button>
+        {/* 退出登录（后台管理页 + 已登录时显示，位于后台管理按钮上方） */}
+        {showLogout && isLogin && (
+          <button
+            title={collapsed ? '退出登录' : undefined}
+            className={cn(
+              'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-500 dark:text-zinc-400 dark:hover:bg-red-500/10 dark:hover:text-red-400',
+              collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
+            )}
+            onClick={() => setConfirmLogout(true)}
+          >
+            <LogOut size={15} className="shrink-0 opacity-70" />
+            {!collapsed && <span className="flex-1 truncate text-left">退出登录</span>}
+          </button>
+        )}
+
+        {/* 后台管理页：显示返回主页；主页：显示后台管理入口 */}
+        {menu ? (
+          <button
+            title={collapsed ? '返回主页' : undefined}
+            className={cn(
+              'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-zinc-200',
+              collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
+            )}
+            onClick={() => {
+              navigate('/')
+              onMobileClose()
+            }}
+          >
+            <House size={15} className="shrink-0 opacity-70" />
+            {!collapsed && <span className="flex-1 truncate text-left">返回主页</span>}
+          </button>
+        ) : (
+          <button
+            title={collapsed ? '后台管理' : undefined}
+            className={cn(
+              'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-zinc-200',
+              collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
+            )}
+            onClick={goSystem}
+          >
+            <Settings size={15} className="shrink-0 opacity-70" />
+            {!collapsed && <span className="flex-1 truncate text-left">后台管理</span>}
+          </button>
+        )}
       </div>
     </div>
   )
@@ -260,6 +301,19 @@ export default function Sidebar({
           </aside>
         </div>
       )}
+
+      <ConfirmModal
+        open={confirmLogout}
+        title="退出登录"
+        content="确定要退出当前账号吗？"
+        onConfirm={() => {
+          setConfirmLogout(false)
+          useNavStore.getState().logout()
+          window.location.hash = '#/'
+          window.location.reload()
+        }}
+        onClose={() => setConfirmLogout(false)}
+      />
     </>
   )
 }

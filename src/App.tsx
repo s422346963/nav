@@ -1,11 +1,14 @@
 // 开源项目，未经作者同意，不得以抄袭/复制代码/修改源代码版权信息。
 
-import { useEffect, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { useNavStore } from '@/store/useNavStore'
-import { ToastHost } from '@/components/ui'
-import Home from '@/pages/Home'
-import System from '@/pages/System'
+import { Loading, ToastHost } from '@/components/ui'
+
+// 路由级代码分割：前台 / 后台 / 登录按需加载
+const Home = lazy(() => import('@/pages/Home'))
+const System = lazy(() => import('@/pages/System'))
+const Login = lazy(() => import('@/pages/Login'))
 
 export default function App() {
   const init = useNavStore((s) => s.init)
@@ -28,21 +31,21 @@ export default function App() {
   }
 
   if (!loaded) {
-    return (
-      <div className="flex h-full items-center justify-center text-sm text-zinc-500">
-        加载中...
-      </div>
-    )
+    return <Loading />
   }
 
   return (
     <HashRouter>
       <ToastHost />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/system" element={<System />} />
-        <Route path="*" element={<Navigate to="/" replace />} />
-      </Routes>
+      <Suspense fallback={<Loading />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/system" element={<Navigate to="/system/web" replace />} />
+          <Route path="/system/:tab" element={<System />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </Suspense>
     </HashRouter>
   )
 }

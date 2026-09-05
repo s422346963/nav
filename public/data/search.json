@@ -2,7 +2,7 @@
     "list": [
         {
             "name": "站内",
-            "icon": "https://cdn.jsdelivr.net/gh/xjh22222228/public@gh-pages/nav/logo.svg",
+            "icon": "https://cdn.jsdelivr.net/gh/s422346963/public@image/1782285957518.ico",
             "placeholder": "站内搜索",
             "blocked": false,
             "isInner": true
@@ -11,6 +11,13 @@
             "name": "Baidu",
             "url": "https://www.baidu.com/s?wd=",
             "icon": "https://www.baidu.com/favicon.ico",
+            "blocked": false,
+            "isInner": false
+        },
+        {
+            "name": "Bing",
+            "url": "https://www.bing.com/search?q=",
+            "icon": "https://www.bing.com/favicon.ico",
             "blocked": false,
             "isInner": false
         },
