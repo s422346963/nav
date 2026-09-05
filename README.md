@@ -101,3 +101,12 @@ src/
 - **置顶**：`top` 标记快捷方式，`topTypes` 决定置顶的主题位置
 - **`ownVisible`**：仅登录可见，未登录时整枝过滤
 - **排序**：节点按 `index` 字段升序排列（拖拽 / 置顶 / 置底 / 上移下移均调整该值）
+
+## 许可证
+
+本项目基于 [GNU General Public License v3.0 (GPL-3.0)](https://www.gnu.org/licenses/gpl-3.0.html) 开源，
+完整许可证文本见 [LICENSE](LICENSE)：
+
+- 任何人可自由使用、修改、分发本项目
+- 修改或衍生代码必须同样以 GPL-3.0 开源
+- 分发时必须保留版权与许可证声明
