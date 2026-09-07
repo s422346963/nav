@@ -23,6 +23,8 @@ export default function Header({
   const dark = useThemeStore((s) => s.dark)
   const toggleDark = useThemeStore((s) => s.toggle)
   const showThemeToggle = useNavStore((s) => s.settings.showThemeToggle)
+  const isLogin = useNavStore((s) => s.isLogin)
+  const gitRepoUrl = useNavStore((s) => s.settings.gitRepoUrl)
   const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false)
 
@@ -73,6 +75,24 @@ export default function Header({
       >
         <Home size={18} />
       </button>
+
+      {/* 登录后：GitHub 仓库按钮（跳转 gitRepoUrl） */}
+      {isLogin && gitRepoUrl && (
+        <a
+          className={iconBtn}
+          href={gitRepoUrl}
+          target="_blank"
+          rel="noreferrer"
+          aria-label="GitHub 仓库"
+          title="GitHub 仓库"
+        >
+          <img
+            src="https://cdn.jsdelivr.net/gh/s422346963/public@image/_upload/1788703534757-1.png"
+            alt=""
+            className="h-[18px] w-[18px] rounded"
+          />
+        </a>
+      )}
 
       {/* 右侧功能按钮（纯图标，title 提示） */}
       <div className="ml-auto flex items-center gap-1">
