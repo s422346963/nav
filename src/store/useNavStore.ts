@@ -213,7 +213,12 @@ export const useNavStore = create<NavState>((set, get) => ({
         return false
       }
       localStorage.setItem(TOKEN_KEY, accessToken.trim())
+      // 先标记登录成功，让 Login 页能立刻 navigate；ownVisible 数据在后台异步补齐，
+      // 不要在这里把 loaded 置 false——那会卸载 HashRouter，导致跳转失效。
       set({ token: accessToken.trim(), isLogin: true })
+      void get()
+        .init()
+        .catch((e) => console.error(e))
       return true
     } catch (e: any) {
       toast.error(`Token 校验失败：${e.message}`)

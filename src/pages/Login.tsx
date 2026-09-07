@@ -19,7 +19,7 @@ export default function Login() {
     setLoading(true)
     const ok = await login(token)
     setLoading(false)
-    // 校验成功后进入后台管理
+    // 校验成功后先进入后台；ownVisible 数据会在后台异步补齐
     if (ok) {
       toast.success('登录成功，进入后台管理')
       navigate('/system/web', { replace: true })
