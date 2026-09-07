@@ -5,7 +5,7 @@
 // 行支持鼠标拖拽排序，上移/下移由拖拽替代，全屏宽度卡片式布局。
 
 import { useMemo, useRef, useState } from 'react'
-import { ChevronDown, GripVertical, Pencil, X } from 'lucide-react'
+import { ChevronDown, ChevronRight, GripVertical, Pencil, X } from 'lucide-react'
 import { useNavStore, STORAGE_KEY_MAP } from '@/store/useNavStore'
 import { useModalStore } from '@/store/useModalStore'
 import { uploadDb } from '@/lib/github'
@@ -48,6 +48,23 @@ export default function WebPanel() {
   const three = two?.nav?.find((n) => n.id === threeId)
 
   const totalWebs = useMemo(() => countAll(navs), [navs])
+
+  /** 点击分类名称进入该分类：选中并下钻到下一层级标签页 */
+  const enterCategory = (cls: ClassRow) => {
+    if (tab === 'one') {
+      setOneId(cls.id)
+      setTwoId(undefined)
+      setThreeId(undefined)
+      setTab('two')
+    } else if (tab === 'two') {
+      setTwoId(cls.id)
+      setThreeId(undefined)
+      setTab('three')
+    } else if (tab === 'three') {
+      setThreeId(cls.id)
+      setTab('web')
+    }
+  }
 
   /** 检索异常网站：仅检测当前选中三级分类下的网站，每批 5 个并发 */
   const [checking, setChecking] = useState(false)
@@ -258,6 +275,7 @@ export default function WebPanel() {
             onAdd={() => openEditClass({ cls: null, level: 1 })}
             deleteByIds={deleteByIds}
             setConfirm={setConfirm}
+            onEnterCategory={enterCategory}
           />
         )}
         {tab === 'two' && (
@@ -283,6 +301,7 @@ export default function WebPanel() {
                 addDisabled={!oneId}
                 deleteByIds={deleteByIds}
                 setConfirm={setConfirm}
+                onEnterCategory={enterCategory}
               />
             </div>
           </div>
@@ -321,6 +340,7 @@ export default function WebPanel() {
                 addDisabled={!twoId}
                 deleteByIds={deleteByIds}
                 setConfirm={setConfirm}
+                onEnterCategory={enterCategory}
               />
             </div>
           </div>
@@ -592,6 +612,7 @@ function ClassTable({
   addDisabled,
   deleteByIds,
   setConfirm,
+  onEnterCategory,
 }: {
   rows: ClassRow[]
   onReorder: (dragId: number, overId: number) => void
@@ -601,6 +622,7 @@ function ClassTable({
   addDisabled?: boolean
   deleteByIds: (ids: number[]) => boolean
   setConfirm: (c: { title: string; content: string; onOk: () => void } | null) => void
+  onEnterCategory?: (cls: ClassRow) => void
 }) {
   const updateClass = useNavStore((s) => s.updateClass)
   const [selected, setSelected] = useState<Set<number>>(new Set())
@@ -712,7 +734,20 @@ function ClassTable({
                   <td className="px-4 py-3.5">
                     <CommonIcon name={row.title || ''} icon={row.icon} />
                   </td>
-                  <td className="px-4 py-3.5 text-[15px] font-medium">{row.title}</td>
+                  <td className="px-4 py-3.5 text-[15px] font-medium">
+                    <button
+                      type="button"
+                      className="group/title inline-flex cursor-pointer items-center gap-1 text-left text-zinc-800 transition-colors hover:text-primary hover:underline dark:text-zinc-100 dark:hover:text-primary"
+                      title="进入该分类"
+                      onClick={() => onEnterCategory?.(row)}
+                    >
+                      {row.title}
+                      <ChevronRight
+                        size={15}
+                        className="shrink-0 text-zinc-300 opacity-0 transition-opacity group-hover/title:opacity-100 dark:text-zinc-600"
+                      />
+                    </button>
+                  </td>
                   <td className="px-4 py-3.5 text-center">
                     <VisibleCell
                       ownVisible={row.ownVisible}
