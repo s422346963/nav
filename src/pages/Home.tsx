@@ -30,6 +30,7 @@ export default function Home() {
   const settings = useNavStore((s) => s.settings)
   const isLogin = useNavStore((s) => s.isLogin)
   const openEditWeb = useModalStore((s) => s.openEditWeb)
+  const openEditClass = useModalStore((s) => s.openEditClass)
 
   const q = params.get('q') || ''
   const sType = (Number(params.get('type')) || SearchType.All) as SearchType
@@ -137,7 +138,13 @@ export default function Home() {
           ) : (
             <>
               <PinnedList />
-              {groups.length > 0 && <ClassTabs groups={groups} />}
+              {groups.length > 0 && (
+                <ClassTabs
+                  groups={groups}
+                  isLogin={isLogin}
+                  onAdd={() => openEditClass({ cls: null, level: 3, parentId: currentTwo?.id })}
+                />
+              )}
               <WebGroups groups={groups} />
             </>
           )}

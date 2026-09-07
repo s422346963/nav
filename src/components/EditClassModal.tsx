@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 import { useNavStore } from '@/store/useNavStore'
 import { useModalStore } from '@/store/useModalStore'
 import { flattenClasses } from '@/lib/tree'
+import { findNodeById } from '@/lib/dfs'
+import { isNumber, DEFAULT_SORT_INDEX } from '@/lib/utils'
 import { Button, Field, Input, Modal, Select } from './ui'
 import { toast } from '@/store/toast'
 
@@ -72,7 +74,15 @@ export default function EditClassModal() {
       updateClass(payload.cls.id, { title, icon, ownVisible })
       toast.success('已保存')
     } else {
-      const node = { id: nextId(), title, icon, ownVisible, nav: [] }
+      // 取同级最大 index + 1，保证新分类默认排到最后
+      const siblings =
+        level === 1 ? navs : findNodeById(navs, parentId as number)?.nav || []
+      const maxIndex = siblings.reduce(
+        (m: number, it: any) =>
+          Math.max(m, isNumber(it.index) ? Number(it.index) : DEFAULT_SORT_INDEX),
+        0,
+      )
+      const node = { id: nextId(), title, icon, ownVisible, index: maxIndex + 1, nav: [] }
       if (level === 1) {
         pushRootData(node)
       } else if (parentId) {

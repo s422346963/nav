@@ -7,6 +7,8 @@ import { useEffect, useState } from 'react'
 import { useNavStore } from '@/store/useNavStore'
 import { useModalStore } from '@/store/useModalStore'
 import { flattenClasses } from '@/lib/tree'
+import { findNodeById } from '@/lib/dfs'
+import { isNumber, DEFAULT_SORT_INDEX } from '@/lib/utils'
 import type { IWebProps } from '@/types/nav'
 import { Button, IconInput, Input, Modal, Select, Textarea } from './ui'
 import { toast } from '@/store/toast'
@@ -91,7 +93,7 @@ export default function EditWebModal() {
     setForm(
       web
         ? { ...web }
-        : { name: '', url: '', icon: '', desc: '', rate: 5, top: false, index: 100000 },
+        : { name: '', url: '', icon: '', desc: '', rate: 5, top: false },
     )
     setParentId(editWeb.parentId ?? classes[0]?.id)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -181,8 +183,16 @@ export default function EditWebModal() {
         toast.error('请选择所属分类')
         return
       }
+      // 取同分类下最大 index + 1，保证新网站默认排到最后
+      const siblings = findNodeById(navs, parentId)?.nav || []
+      const maxIndex = siblings.reduce(
+        (m: number, it: any) =>
+          Math.max(m, isNumber(it.index) ? Number(it.index) : DEFAULT_SORT_INDEX),
+        0,
+      )
       pushData(parentId, {
         ...form,
+        index: isNumber(form.index) ? Number(form.index) : maxIndex + 1,
         id: nextId(),
         tags: [],
         topTypes: form.top ? [1] : [],

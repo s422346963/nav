@@ -147,6 +147,18 @@ export function getClassById(
   return { parentId, oneIndex, twoIndex, threeIndex, breadcrumb }
 }
 
+/** 按 id 在三级树中查找节点（深搜），未找到返回 undefined */
+export function findNodeById(navs: any[], id: number): any | undefined {
+  for (const item of navs) {
+    if (item.id === id) return item
+    if (Array.isArray(item.nav)) {
+      const found = findNodeById(item.nav, id)
+      if (found) return found
+    }
+  }
+  return undefined
+}
+
 /** 当前选中二级分类下的三级分组列表（对齐原 matchCurrentList） */
 export function matchCurrentList(navsData: any[], id: unknown, isLogin: boolean): any[] {
   const { oneIndex, twoIndex } = getClassById(navsData, id)
