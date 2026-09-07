@@ -32,10 +32,17 @@ export default function EditClassModal() {
     setOwnVisible(!!payload.cls?.ownVisible)
     setLevel(payload.level)
     if (!payload.cls) {
-      const classes = flattenClasses(navs).filter((c) =>
-        payload.level === 2 ? c.level === 1 : c.level === 2,
-      )
-      setParentId(classes[0]?.id)
+      // 优先用打开弹窗时传入的当前选中分类；否则回退到该层级候选的第一项
+      if (payload.parentId != null) {
+        setParentId(payload.parentId)
+      } else if (payload.level > 1) {
+        const classes = flattenClasses(navs).filter((c) =>
+          payload.level === 2 ? c.level === 1 : c.level === 2,
+        )
+        setParentId(classes[0]?.id)
+      } else {
+        setParentId(undefined)
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [editClass.open, payload])
@@ -43,6 +50,18 @@ export default function EditClassModal() {
   const parentCandidates = flattenClasses(navs).filter((c) =>
     level === 2 ? c.level === 1 : c.level === 2,
   )
+
+  // 仅在「分类层级」切换时同步上级分类；不要依赖 parentCandidates（每次渲染都是新数组，会把用户手选冲掉）
+  useEffect(() => {
+    if (level <= 1) {
+      setParentId(undefined)
+      return
+    }
+    setParentId((prev) =>
+      parentCandidates.some((c) => c.id === prev) ? prev : parentCandidates[0]?.id,
+    )
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [level])
 
   const onSubmit = () => {
     if (!title.trim()) {
