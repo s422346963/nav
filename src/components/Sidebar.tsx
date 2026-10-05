@@ -1,9 +1,10 @@
 // 开源项目，未经作者同意，不得以抄袭/复制代码/修改源代码版权信息。
 // 侧边分类导航（参考 WebStack-Hugo）：
-// 图标 + 标题 + 折叠箭头的一级菜单、缩进二级菜单、底部固定入口。
+// 图标 + 标题 + 折叠箭头的一级菜单、缩进二级菜单。
+// 底部入口仅保留后台管理页的"返回主页"（后台管理/退出登录已移至顶栏）。
 // 桌面端可通过顶栏汉堡按钮整体收起（滑出），移动端为抽屉。
 
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   BookOpen,
   ChevronDown,
@@ -13,17 +14,15 @@ import {
   House,
   Image,
   Lock,
-  LogOut,
   Newspaper,
   Plane,
-  Settings,
   Star,
   Wrench,
   X,
 } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useNavStore } from '@/store/useNavStore'
-import { ConfirmModal } from '@/components/ui'
+import { useUiStore } from '@/store/useUiStore'
 import { cn } from '@/lib/utils'
 import type { INavProps, INavTwoProp } from '@/types/nav'
 import type { LucideIcon } from 'lucide-react'
@@ -48,7 +47,8 @@ export default function Sidebar({
   menu,
   activeMenuKey,
   onMenuSelect,
-  showLogout = false,
+  homeActive = false,
+  onHomeSelect,
 }: {
   currentOneId: number | undefined
   currentTwoId: number | undefined
@@ -59,15 +59,66 @@ export default function Sidebar({
   menu?: SidebarMenuItem[]
   activeMenuKey?: string
   onMenuSelect?: (key: string) => void
-  /** 底部显示"退出登录"入口（后台管理页使用） */
-  showLogout?: boolean
+  /** 顶部固定「首页」入口是否选中（仅分类树模式显示） */
+  homeActive?: boolean
+  onHomeSelect?: () => void
 }) {
   const navs = useNavStore((s) => s.navs)
-  const isLogin = useNavStore((s) => s.isLogin)
-  const [confirmLogout, setConfirmLogout] = useState(false)
   const settings = useNavStore((s) => s.settings)
   const navigate = useNavigate()
-  const [expanded, setExpanded] = useState<Set<number>>(new Set())
+  // 已展开的一级分类放 store：切换路由不重置（局部 state 会随页面卸载丢失）
+  const expandedOneIds = useUiStore((s) => s.expandedOneIds)
+  const setExpandedOneIds = useUiStore((s) => s.setExpandedOneIds)
+  const expandOne = useUiStore((s) => s.expandOne)
+  const expanded = useMemo(() => new Set(expandedOneIds), [expandedOneIds])
+
+  // 挂载后隔两帧再应用展开状态：首页 → 分类是路由切换，侧栏会重建，
+  // 若首帧就按「已展开」渲染，grid-rows 没有起始值可用，过渡不会触发（表现为瞬间展开）
+  const [animateOpen, setAnimateOpen] = useState(false)
+
+  useEffect(() => {
+    let raf2 = 0
+    const raf1 = requestAnimationFrame(() => {
+      raf2 = requestAnimationFrame(() => setAnimateOpen(true))
+    })
+    return () => {
+      cancelAnimationFrame(raf1)
+      cancelAnimationFrame(raf2)
+    }
+  }, [])
+
+  // 收起态悬停浮层：展示该一级分类下的二级菜单
+  // 面板用 fixed 定位（视口坐标），避免被侧栏 overflow-hidden 与滚动容器裁剪
+  const [flyout, setFlyout] = useState<{ id: number; top: number; left: number } | null>(null)
+  const flyoutTimer = useRef<number | undefined>(undefined)
+
+  const openFlyout = (id: number, el: HTMLElement) => {
+    window.clearTimeout(flyoutTimer.current)
+    const r = el.getBoundingClientRect()
+    // 估算面板高度（标题 + 每项 36px + 内边距），超出视口时向上贴近
+    const count = navs.find((n) => n.id === id)?.nav?.length ?? 0
+    const est = 40 + count * 36
+    const top = Math.max(72, Math.min(r.top, window.innerHeight - est - 12))
+    setFlyout({ id, top, left: r.right })
+  }
+
+  const closeFlyout = (immediate = false) => {
+    window.clearTimeout(flyoutTimer.current)
+    if (immediate) {
+      setFlyout(null)
+      return
+    }
+    // 留出鼠标从按钮移入浮层的缓冲
+    flyoutTimer.current = window.setTimeout(() => setFlyout(null), 120)
+  }
+
+  // 侧栏展开时关闭浮层
+  useEffect(() => {
+    if (desktopOpen) setFlyout(null)
+  }, [desktopOpen])
+
+  // 卸载清理定时器
+  useEffect(() => () => window.clearTimeout(flyoutTimer.current), [])
 
   // 品牌区：logo + 标题（从顶栏移入）。收起时只留 logo 居中
   const brandText =
@@ -97,19 +148,42 @@ export default function Sidebar({
     </Link>
   )
 
-  // 当前一级始终展开
+  // 切换分类时默认展开当前一级（只跟随 currentOneId 变化，避免把用户手动收起又弹回来）
   useEffect(() => {
-    if (currentOneId != null) {
-      setExpanded((s) => (s.has(currentOneId) ? s : new Set(s).add(currentOneId)))
-    }
-  }, [currentOneId])
-
-  const goSystem = () => navigate('/system')
+    if (currentOneId != null) expandOne(currentOneId)
+  }, [currentOneId, expandOne])
 
   const nav = (collapsed: boolean) => (
     <div className="flex h-full flex-col">
       {brand(collapsed)}
-      <nav className="flex-1 overflow-y-auto py-3">
+
+      {/* 顶部固定「首页」入口：位于分类列表之上，不随分类滚动 */}
+      {!menu && (
+        <button
+          title={collapsed ? '首页' : undefined}
+          className={cn(
+            'flex h-11 w-full shrink-0 cursor-pointer items-center text-[15px] transition-colors',
+            collapsed ? 'justify-center' : 'gap-2.5 py-0 pl-5 pr-3',
+            homeActive
+              ? 'bg-primary/5 font-medium text-primary'
+              : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/5',
+          )}
+          onClick={() => {
+            onHomeSelect?.()
+            onMobileClose()
+            onSelect?.()
+          }}
+        >
+          <House size={16} className="shrink-0 opacity-70" />
+          {!collapsed && <span className="flex-1 truncate text-left">首页</span>}
+        </button>
+      )}
+
+      <nav
+        className="flex-1 overflow-y-auto py-3"
+        // 滚动时浮层位置会失效，直接关闭（鼠标移动可重新触发）
+        onScroll={collapsed ? () => closeFlyout(true) : undefined}
+      >
         {/* 自定义菜单模式（后台管理等页面） */}
         {menu?.map((m, i) => {
           const Icon = m.icon || MENU_ICONS[i % MENU_ICONS.length]
@@ -143,10 +217,27 @@ export default function Sidebar({
           const oneActive = one.id === currentOneId
           const isOpen = expanded.has(one.id)
           const Icon = MENU_ICONS[i % MENU_ICONS.length]
+          const children = one.nav || []
+          // 收起态且有二级菜单：悬停显示浮层（取代原生 title 提示）
+          const showFlyout = collapsed && children.length > 0
           return (
-            <div key={one.id}>
+            <div
+              key={one.id}
+              onMouseEnter={
+                showFlyout ? (e) => openFlyout(one.id, e.currentTarget) : undefined
+              }
+              // 滚动关闭后鼠标仍停在按钮上，轻微移动即可重新弹出
+              onMouseMove={
+                showFlyout
+                  ? (e) => {
+                      if (flyout?.id !== one.id) openFlyout(one.id, e.currentTarget)
+                    }
+                  : undefined
+              }
+              onMouseLeave={showFlyout ? () => closeFlyout() : undefined}
+            >
               <button
-                title={collapsed ? one.title : undefined}
+                title={collapsed && !showFlyout ? one.title : undefined}
                 className={cn(
                   'flex h-11 w-full cursor-pointer items-center text-[15px] transition-colors',
                   collapsed ? 'justify-center' : 'gap-2.5 py-0 pl-5 pr-3',
@@ -155,9 +246,9 @@ export default function Sidebar({
                     : 'text-zinc-600 hover:bg-zinc-100 dark:text-zinc-300 dark:hover:bg-white/5',
                 )}
                 onClick={() => {
-                  setExpanded(new Set([one.id]))
+                  setExpandedOneIds([one.id])
                   const firstTwo = one.nav?.[0]
-                  window.location.hash = firstTwo ? `/?id=${firstTwo.id}` : `/?id=${one.id}`
+                  window.location.hash = `/nav?id=${firstTwo ? firstTwo.id : one.id}`
                   onMobileClose()
                   onSelect?.()
                 }}
@@ -176,11 +267,11 @@ export default function Sidebar({
                       onClick={(e) => {
                         // 箭头单独点击：仅展开/收起，不跳转
                         e.stopPropagation()
-                        setExpanded((s) => {
-                          const next = new Set(s)
-                          next.has(one.id) ? next.delete(one.id) : next.add(one.id)
-                          return next
-                        })
+                        setExpandedOneIds(
+                          expanded.has(one.id)
+                            ? expandedOneIds.filter((x) => x !== one.id)
+                            : [...expandedOneIds, one.id],
+                        )
                       }}
                     />
                   </>
@@ -191,11 +282,11 @@ export default function Sidebar({
               <div
                 className={cn(
                   'grid transition-[grid-template-rows] duration-300 ease-in-out',
-                  isOpen && !collapsed ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
+                  isOpen && !collapsed && animateOpen ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]',
                 )}
               >
                 <div className="overflow-hidden">
-                  {(one.nav || []).map((two: INavTwoProp) => {
+                  {children.map((two: INavTwoProp) => {
                     const twoActive = two.id === currentTwoId
                     return (
                       <button
@@ -207,7 +298,7 @@ export default function Sidebar({
                             : 'border-transparent text-zinc-500 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-zinc-200',
                         )}
                         onClick={() => {
-                          window.location.hash = `/?id=${two.id}`
+                          window.location.hash = `/nav?id=${two.id}`
                           onMobileClose()
                           onSelect?.()
                         }}
@@ -219,30 +310,62 @@ export default function Sidebar({
                   })}
                 </div>
               </div>
+
+              {/* 收起态悬停浮层：浮层是分组 div 的子节点，鼠标移入不会触发分组的 mouseleave */}
+              {showFlyout && flyout?.id === one.id && (
+                <div
+                  className="fixed z-[60] flex w-[138px] flex-col overflow-hidden rounded-xl border border-zinc-200 bg-white py-1.5 shadow-xl ring-1 ring-black/5 dark:border-zinc-700 dark:bg-zinc-800 dark:ring-white/5"
+                  style={{
+                    top: flyout.top,
+                    left: flyout.left,
+                    maxHeight: `calc(100vh - ${flyout.top + 12}px)`,
+                  }}
+                  onMouseEnter={() => window.clearTimeout(flyoutTimer.current)}
+                  onMouseLeave={() => closeFlyout()}
+                >
+                  <div className="flex shrink-0 items-center gap-2 px-3 pb-1 pt-0.5">
+                    <Icon size={13} className="shrink-0 text-primary opacity-80" />
+                    <span className="flex-1 truncate text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                      {one.title}
+                    </span>
+                  </div>
+                  <div className="min-h-0 flex-1 overflow-y-auto">
+                    {children.map((two: INavTwoProp) => {
+                      const twoActive = two.id === currentTwoId
+                      return (
+                        <button
+                          key={two.id}
+                          className={cn(
+                            'flex h-9 w-full cursor-pointer items-center gap-2 border-l-2 px-3 text-sm transition-colors',
+                            twoActive
+                              ? 'border-primary bg-primary/5 font-medium text-primary'
+                              : 'border-transparent text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900 dark:text-zinc-300 dark:hover:bg-white/5 dark:hover:text-zinc-100',
+                          )}
+                          onClick={() => {
+                            window.location.hash = `/nav?id=${two.id}`
+                            closeFlyout(true)
+                            onMobileClose()
+                            onSelect?.()
+                          }}
+                        >
+                          <span className="flex-1 truncate text-left">{two.title}</span>
+                          {two.ownVisible && (
+                            <Lock size={11} className="shrink-0 text-amber-500" />
+                          )}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
             </div>
           )
         })}
       </nav>
 
-      {/* 底部固定入口（对齐参考站 sidebar-footer） */}
-      <div className="border-t border-zinc-200 py-2 dark:border-zinc-700/70">
-        {/* 退出登录（后台管理页 + 已登录时显示，位于后台管理按钮上方） */}
-        {showLogout && isLogin && (
-          <button
-            title={collapsed ? '退出登录' : undefined}
-            className={cn(
-              'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-red-50 hover:text-red-500 dark:text-zinc-400 dark:hover:bg-red-500/10 dark:hover:text-red-400',
-              collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
-            )}
-            onClick={() => setConfirmLogout(true)}
-          >
-            <LogOut size={15} className="shrink-0 opacity-70" />
-            {!collapsed && <span className="flex-1 truncate text-left">退出登录</span>}
-          </button>
-        )}
-
-        {/* 后台管理页：显示返回主页；主页：显示后台管理入口 */}
-        {menu ? (
+      {/* 底部固定入口：返回主页（后台管理页）；后台管理/退出登录入口已移至顶栏 */}
+      {menu && (
+        <div className="border-t border-zinc-200 py-2 dark:border-zinc-700/70">
           <button
             title={collapsed ? '返回主页' : undefined}
             className={cn(
@@ -257,20 +380,8 @@ export default function Sidebar({
             <House size={15} className="shrink-0 opacity-70" />
             {!collapsed && <span className="flex-1 truncate text-left">返回主页</span>}
           </button>
-        ) : (
-          <button
-            title={collapsed ? '后台管理' : undefined}
-            className={cn(
-              'flex h-10 w-full cursor-pointer items-center text-sm text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-800 dark:text-zinc-400 dark:hover:bg-white/5 dark:hover:text-zinc-200',
-              collapsed ? 'justify-center' : 'gap-2.5 pl-5 pr-3',
-            )}
-            onClick={goSystem}
-          >
-            <Settings size={15} className="shrink-0 opacity-70" />
-            {!collapsed && <span className="flex-1 truncate text-left">后台管理</span>}
-          </button>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   )
 
@@ -301,19 +412,6 @@ export default function Sidebar({
           </aside>
         </div>
       )}
-
-      <ConfirmModal
-        open={confirmLogout}
-        title="退出登录"
-        content="确定要退出当前账号吗？"
-        onConfirm={() => {
-          setConfirmLogout(false)
-          useNavStore.getState().logout()
-          window.location.hash = '#/'
-          window.location.reload()
-        }}
-        onClose={() => setConfirmLogout(false)}
-      />
     </>
   )
 }

@@ -4,7 +4,7 @@
 // 下方引擎快捷切换行，点击图标弹出引擎面板。
 
 import { useEffect, useMemo, useRef, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useNavigate, useSearchParams } from 'react-router-dom'
 import { ChevronDown, Search } from 'lucide-react'
 import { useNavStore } from '@/store/useNavStore'
 import { getDefaultEngine, setDefaultEngine } from '@/lib/utils'
@@ -25,6 +25,7 @@ export const TYPE_OPTIONS = [
 export default function SearchBar() {
   const search = useNavStore((s) => s.search)
   const [params, setParams] = useSearchParams()
+  const navigate = useNavigate()
   const inputRef = useRef<HTMLInputElement>(null)
   const [keyword, setKeyword] = useState(params.get('q') || '')
   const [engineOpen, setEngineOpen] = useState(false)
@@ -60,9 +61,14 @@ export default function SearchBar() {
   const doSearch = () => {
     if (!engine) return
     if (engine.isInner) {
-      const next = new URLSearchParams(params)
-      keyword.trim() ? next.set('q', keyword.trim()) : next.delete('q')
-      setParams(next)
+      // 站内搜索：跳到 /search，保留来源分类（「当前」搜索范围需要）与已选搜索类型
+      const next = new URLSearchParams()
+      const idParam = params.get('id')
+      if (idParam) next.set('id', idParam)
+      if (keyword.trim()) next.set('q', keyword.trim())
+      if (sType !== SearchType.All) next.set('type', String(sType))
+      const qs = next.toString()
+      navigate(qs ? `/search?${qs}` : '/search')
     } else if (keyword.trim()) {
       window.open(`${engine.url}${encodeURIComponent(keyword.trim())}`)
     }

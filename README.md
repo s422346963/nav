@@ -1,6 +1,6 @@
 # WayNav · 路标导航
 
-轻量、免费、开源的导航网站。左侧分类导航 + 右侧卡片内容区，支持多引擎搜索、后台可视化管理与 GitHub 数据同步。
+轻量、免费、开源的导航网站。左侧分类导航 + 右侧卡片内容区，支持多引擎搜索、本地收藏（无需登录）、后台可视化管理与 GitHub 数据同步。
 
 ## 技术栈
 
@@ -22,11 +22,40 @@ npm run preview  # 本地预览构建产物
 
 ### 前台（`#/`）
 
-- 左侧全高侧边栏（品牌 logo + 分类树 + 底部入口），可收起为仅图标模式（220px ↔ 64px）
-- 顶栏仅覆盖右侧内容区：未滚动时透明（图标随背景自动切换明暗），滚动后变毛玻璃
-- Hero 区大搜索框：多引擎切换（站内 / Baidu / Bing / Google，可在 `search.json` 配置），
-  支持综合 / 分类 / 标题 / 描述 / 链接 / 当前分类等搜索维度
-- 网站卡片：收藏置顶、复制链接、编辑、移动、删除（登录后显示操作按钮）
+**侧边栏**（左侧全高，可收起为仅图标模式 220px ↔ 64px）：
+
+- 品牌 logo + 顶部固定「首页」入口（不随分类列表滚动，收起态只显示图标）
+- 分类树：一级菜单可展开/收起、二级菜单缩进展示；收起侧栏后**悬停一级菜单**会浮出二级菜单面板，点击浮层项直接跳转
+- 后台管理页的侧栏不显示「首页」，底部保留「返回主页」入口
+
+**三个前台路由**（可分享、可前进后退，共用同一套侧栏 + 顶栏 + Hero 搜索栏）：
+
+| 页面 | 路由 | 内容 |
+| --- | --- | --- |
+| 首页（默认） | `#/` | 本地收藏列表 |
+| 搜索 | `#/search?q=xx` | 搜索结果（可带 `&type=` 指定搜索范围、`&id=` 记录来源分类） |
+| 分类 | `#/nav?id=xx` | 置顶快捷方式 + 二级分类页签 + 网站卡片 |
+
+- 站内搜索统一跳到 `#/search`；从分类页发起搜索会带上 `id`，因此「当前」范围仍是该分类
+- 侧栏高亮只看 URL 里有没有 `?id=`：首页 / 搜索页没有 `id` 时侧栏停在「首页」，不会跳到上次选中的分类；
+  分类页（`?id=xx`）则高亮该分类。`location` 记忆只在显式带 `?id=` 时更新
+- 旧地址兼容：`#/?id=xx` 自动跳 `#/nav?id=xx`，`#/?q=xx` 自动跳 `#/search?q=xx`
+
+**顶栏**仅覆盖右侧内容区：未滚动时透明（图标随背景自动切换明暗），滚动后变毛玻璃。右侧按钮依次为
+主题切换（`showThemeToggle` 控制）、后台管理、退出登录（仅后台管理页显示，带二次确认）。
+
+**Hero 大搜索框**：多引擎切换（站内 / Baidu / Bing / Google，可在 `search.json` 配置），
+支持综合 / 分类 / 标题 / 描述 / 链接 / 当前分类等搜索维度。
+
+**网站卡片**：hover 操作栏（每行 3 个、最多两行、整体靠右）按需显示
+星标收藏 / 复制链接 / 编辑 / 移动 / 删除（编辑、移动、删除登录后可见）。
+
+### 本地收藏（无需登录）
+
+- 收藏只存浏览器 `localStorage`（键 `FAVORITES`），与云端数据、登录态完全解耦：未登录可用，退出登录也不会被清除
+- 添加：网站卡片 hover 操作栏最左侧的**星标**按钮，已收藏为实心琥珀色，再点取消收藏；网站收录入口（`@apply`）不显示星标
+- 每个收藏保存的是网站快照（名称 / 链接 / 图标 / 描述 / 收藏时间），因此分类被删除、或网站因 `ownVisible` 在未登录时被过滤，收藏依然可用
+- 首页视图的收藏列表：点击卡片跳转，hover 操作栏只有**复制链接**与**移除收藏**
 
 ### 后台管理（`#/system/xxx`）
 
@@ -67,9 +96,20 @@ npm run preview  # 本地预览构建产物
 
 以上字段均可在后台「网站设置」面板逐项修改并上传同步。
 
+运行时另有若干 `localStorage` 键（均不会被上传到仓库）：
+
+| 键 | 说明 |
+| --- | --- |
+| `token` | 登录用的 GitHub Token |
+| `WEBSITE_DB` | 登录后的本地编辑缓存（构建时间戳变化时自动清除） |
+| `SETTINGS_DB` | 后台修改的站点设置缓存 |
+| `FAVORITES` | 本地收藏列表（与登录态无关，退出登录不清除） |
+| `location` | 上次选中的分类 id |
+
 ## 登录与发布流程
 
-1. **权限**：访客完全只读（`ownVisible` 节点被过滤、无任何写入口）；GitHub Token 登录后拥有全部写权限
+1. **权限**：访客完全只读（`ownVisible` 节点被过滤、无任何写入口）；GitHub Token 登录后拥有全部写权限。
+   本地收藏不属于云端数据，访客与登录用户都能自由增删
 2. **编辑**：所有改动实时持久化到 `localStorage`（构建时间戳变化时自动清缓存，提示"检测到更新"）
 3. **同步**：后台点「上传同步」/「上传 settings.json」，通过 GitHub Contents API 提交到
    `{gitRepoUrl}/{branch}` 的 `public/data/*.json`，触发 CI 重新部署
@@ -80,16 +120,20 @@ npm run preview  # 本地预览构建产物
 
 ```
 src/
-├── components/        # Sidebar / Header / SearchBar / Card / WebGroups /
+├── components/        # AppLayout（前台通用布局：侧栏 + 顶栏 + Hero 搜索栏）/
+│                      # Sidebar / Header / SearchBar / Card / WebGroups / Favorites /
 │                      # EditWebModal / EditClassModal / MoveWebModal / ui（Button/Input/Modal/Toast…）
-├── lib/               # github（Contents API）、dfs（dfsNavs 遍历）、
+├── lib/               # github（Contents API）、dfs（dfsNavs 遍历）、currentClass（当前分类解析）、
 │                      # normalize（数据规范化）、utils（fuzzySearch 等）、tree、bookmark
 ├── pages/
-│   ├── Home.tsx       # 前台主页
+│   ├── Home.tsx       # 首页（本地收藏）
+│   ├── Search.tsx     # 搜索结果
+│   ├── Nav.tsx        # 分类卡片
 │   ├── Login.tsx      # 登录页（GitHub Token 校验）
 │   ├── System.tsx     # 后台框架（侧栏 + 顶栏 + 子路由）
 │   └── system/        # WebPanel / BookmarkPanel / SettingsPanel / InfoPanel
-├── store/             # useNavStore（数据 + 权限）、useModalStore、useThemeStore、toast
+├── store/             # useNavStore（数据 + 权限）、useFavoriteStore（本地收藏）、
+│                      # useModalStore、useThemeStore、toast
 └── types/             # 数据模型（INavProps / IWebProps / ISettings…）
 ```
 

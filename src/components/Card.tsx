@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom'
 import { Copy, Pencil, Trash2, FolderInput, Star, Lock } from 'lucide-react'
 import { useNavStore } from '@/store/useNavStore'
 import { useModalStore } from '@/store/useModalStore'
+import { useFavoriteStore } from '@/store/useFavoriteStore'
 import { cn, copyText, goUrl, isCodeDesc, getTextContent } from '@/lib/utils'
 import type { IWebProps } from '@/types/nav'
 import { ConfirmModal, WebIcon } from './ui'
@@ -56,6 +57,10 @@ export default function Card({
 
   const isCode = isCodeDesc(web.desc)
   const showActions = isLogin
+  // 收藏：本地保存，未登录也可用
+  const favorites = useFavoriteStore((s) => s.list)
+  const toggleFavorite = useFavoriteStore((s) => s.toggle)
+  const starred = favorites.some((f) => f.id === web.id)
 
   const handleDelete = () => {
     // rId 镜像级联删除
@@ -115,10 +120,26 @@ export default function Card({
         <span className="text-[10px] text-zinc-400">{web.rate ?? 5}</span>
       </div>
 
-      {/* hover 操作区 */}
-      <div className="absolute inset-y-0 right-2 hidden items-center gap-1 rounded-lg bg-white/95 px-1.5 group-hover:flex dark:bg-zinc-800/95">
+      {/* hover 操作区：最多 5 个按钮，每行 3 个（宽度锁死 3 个按钮），整行靠右对齐 */}
+      <div className="absolute inset-y-0 right-2 hidden w-[86px] flex-wrap content-center items-center justify-end gap-1 rounded-lg bg-white/95 px-1.5 group-hover:flex dark:bg-zinc-800/95">
+        {/* 收藏（本地保存，未登录可用）；网站收录入口不支持收藏 */}
+        {web.url !== '@apply' && (
+          <button
+            className={cn(
+              'flex cursor-pointer rounded p-1 hover:text-amber-500',
+              starred ? 'text-amber-400' : 'text-zinc-400',
+            )}
+            title={starred ? '取消收藏' : '收藏'}
+            onClick={(e) => {
+              stop(e)
+              toggleFavorite(web)
+            }}
+          >
+            <Star size={13} className={cn(starred && 'fill-amber-400 text-amber-400')} />
+          </button>
+        )}
         <button
-          className="cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
+          className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
           title="复制链接"
           onClick={async (e) => {
             stop(e)
@@ -131,7 +152,7 @@ export default function Card({
         {isLogin && (
           <>
             <button
-              className="cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
+              className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
               title="编辑"
               onClick={(e) => {
                 stop(e)
@@ -141,7 +162,7 @@ export default function Card({
               <Pencil size={13} />
             </button>
             <button
-              className="cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
+              className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
               title="移动"
               onClick={(e) => {
                 stop(e)
@@ -154,7 +175,7 @@ export default function Card({
         )}
         {isLogin && (
           <button
-            className="cursor-pointer rounded p-1 text-zinc-400 hover:text-red-500"
+            className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-red-500"
             title="删除"
             onClick={(e) => {
               stop(e)

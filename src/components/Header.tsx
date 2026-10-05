@@ -1,13 +1,14 @@
 // 开源项目，未经作者同意，不得以抄袭/复制代码/修改源代码版权信息。
-// 固定顶栏（只覆盖右侧内容区）：左侧汉堡按钮，右侧功能按钮（折叠全部/暗黑切换）。
+// 固定顶栏（只覆盖右侧内容区）：左侧汉堡按钮，右侧功能按钮（后台管理/退出登录/暗黑切换）。
 // 滚动感知：顶部透明，滚动后过渡为毛玻璃 + 底部分隔线，避免内容穿透文字。
-// 后台管理入口已移至侧边栏底部。
 
 import { useEffect, useState } from 'react'
-import { Home, Menu, Moon, Sun } from 'lucide-react'
-import { useNavigate } from 'react-router-dom'
+import { createPortal } from 'react-dom'
+import { Home, LogOut, Menu, Moon, Settings, Sun } from 'lucide-react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { useNavStore } from '@/store/useNavStore'
 import { useThemeStore } from '@/store/useThemeStore'
+import { ConfirmModal } from '@/components/ui'
 import { cn } from '@/lib/utils'
 
 export default function Header({
@@ -26,7 +27,11 @@ export default function Header({
   const isLogin = useNavStore((s) => s.isLogin)
   const gitRepoUrl = useNavStore((s) => s.settings.gitRepoUrl)
   const navigate = useNavigate()
+  const { pathname } = useLocation()
   const [scrolled, setScrolled] = useState(false)
+  const [confirmLogout, setConfirmLogout] = useState(false)
+  // 已在后台管理页时不再显示后台入口
+  const inSystem = pathname.startsWith('/system')
 
   // 滚动感知：超过 8px 切换毛玻璃状态
   useEffect(() => {
@@ -107,7 +112,50 @@ export default function Header({
             <span>主题</span>
           </button>
         )}
+
+        {/* 后台管理（已在后台页时隐藏） */}
+        {!inSystem && (
+          <button
+            className={cn(btn, 'gap-1.5 px-3 text-sm font-medium')}
+            title="后台管理"
+            aria-label="后台管理"
+            onClick={() => navigate('/system')}
+          >
+            <Settings size={18} />
+            <span className="hidden sm:inline">后台</span>
+          </button>
+        )}
+
+        {/* 退出登录（仅后台管理页 + 已登录时显示） */}
+        {inSystem && isLogin && (
+          <button
+            className={cn(btn, 'gap-1.5 px-3 text-sm font-medium')}
+            title="退出登录"
+            aria-label="退出登录"
+            onClick={() => setConfirmLogout(true)}
+          >
+            <LogOut size={18} />
+            <span className="hidden sm:inline">登出</span>
+          </button>
+        )}
       </div>
+
+      {/* 退出确认弹窗：portal 到 body，避免被顶栏 fixed/z-40 的层叠上下文限制 */}
+      {createPortal(
+        <ConfirmModal
+          open={confirmLogout}
+          title="退出登录"
+          content="确定要退出当前账号吗？"
+          onConfirm={() => {
+            setConfirmLogout(false)
+            useNavStore.getState().logout()
+            window.location.hash = '#/'
+            window.location.reload()
+          }}
+          onClose={() => setConfirmLogout(false)}
+        />,
+        document.body,
+      )}
     </header>
   )
 }

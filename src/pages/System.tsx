@@ -63,7 +63,6 @@ export default function System() {
         menu={TABS.map((t) => ({ key: t.key, label: t.label, icon: t.icon }))}
         activeMenuKey={tab}
         onMenuSelect={(key) => navigate(`/system/${key}`)}
-        showLogout
       />
 
       <Header onToggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} tone="light" />
