@@ -1,11 +1,12 @@
 // 开源项目，未经作者同意，不得以抄袭/复制代码/修改源代码版权信息。
-// 首页（收藏）内容区：本地收藏列表，未登录可用，操作栏仅「复制链接」「移除收藏」。
+// 首页（收藏）内容区：本地收藏列表，未登录可用，
+// 操作栏只有「置顶 / 置底 / 复制链接 / 移除收藏」，不支持编辑等云端操作。
 
-import { Copy, Star, Trash2 } from 'lucide-react'
+import { ArrowDownToLine, ArrowUpToLine, Copy, Star, Trash2 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { useFavoriteStore } from '@/store/useFavoriteStore'
 import type { IFavoriteItem } from '@/store/useFavoriteStore'
-import { copyText, getTextContent, goUrl } from '@/lib/utils'
+import { cn, copyText, getTextContent, goUrl } from '@/lib/utils'
 import { WebIcon } from './ui'
 import { toast } from '@/store/toast'
 
@@ -30,16 +31,31 @@ export default function Favorites() {
         <span>共 {list.length} 个</span>
       </div>
       <div className="grid grid-cols-1 gap-x-4 gap-y-3 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {list.map((item) => (
-          <FavoriteCard key={item.id} item={item} />
+        {list.map((item, i) => (
+          <FavoriteCard
+            key={item.id}
+            item={item}
+            isFirst={i === 0}
+            isLast={i === list.length - 1}
+          />
         ))}
       </div>
     </div>
   )
 }
 
-function FavoriteCard({ item }: { item: IFavoriteItem }) {
+function FavoriteCard({
+  item,
+  isFirst,
+  isLast,
+}: {
+  item: IFavoriteItem
+  isFirst: boolean
+  isLast: boolean
+}) {
   const remove = useFavoriteStore((s) => s.remove)
+  const moveTop = useFavoriteStore((s) => s.moveTop)
+  const moveBottom = useFavoriteStore((s) => s.moveBottom)
   const navigate = useNavigate()
 
   const stop = (e: React.MouseEvent) => {
@@ -67,10 +83,10 @@ function FavoriteCard({ item }: { item: IFavoriteItem }) {
         )}
       </div>
 
-      {/* hover 操作区：仅复制链接 / 移除收藏 */}
-      <div className="absolute inset-y-0 right-2 hidden items-center gap-1 rounded-lg bg-white/95 px-1.5 group-hover:flex dark:bg-zinc-800/95">
+      {/* hover 操作区：置顶 / 置底 / 复制链接 / 移除收藏（每行 2 个、整体靠右；宽度锁死保证第 3 个必换行） */}
+      <div className="absolute inset-y-0 right-2 hidden w-[62px] flex-wrap content-center items-center justify-end gap-1 rounded-lg bg-white/95 px-1.5 group-hover:flex dark:bg-zinc-800/95">
         <button
-          className="cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
+          className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary"
           title="复制链接"
           onClick={async (e) => {
             stop(e)
@@ -81,7 +97,7 @@ function FavoriteCard({ item }: { item: IFavoriteItem }) {
           <Copy size={13} />
         </button>
         <button
-          className="cursor-pointer rounded p-1 text-zinc-400 hover:text-red-500"
+          className="flex cursor-pointer rounded p-1 text-zinc-400 hover:text-red-500"
           title="移除收藏"
           onClick={(e) => {
             stop(e)
@@ -89,6 +105,33 @@ function FavoriteCard({ item }: { item: IFavoriteItem }) {
           }}
         >
           <Trash2 size={13} />
+        </button>
+        {/* 已在首/末位时不做禁用（避免点击穿透到卡片跳转），仅置灰 + 由 store 直接 no-op */}
+        <button
+          className={cn(
+            'flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary',
+            isFirst && 'cursor-default opacity-30',
+          )}
+          title="置顶"
+          onClick={(e) => {
+            stop(e)
+            moveTop(item.id)
+          }}
+        >
+          <ArrowUpToLine size={13} />
+        </button>
+        <button
+          className={cn(
+            'flex cursor-pointer rounded p-1 text-zinc-400 hover:text-primary',
+            isLast && 'cursor-default opacity-30',
+          )}
+          title="置底"
+          onClick={(e) => {
+            stop(e)
+            moveBottom(item.id)
+          }}
+        >
+          <ArrowDownToLine size={13} />
         </button>
       </div>
     </div>

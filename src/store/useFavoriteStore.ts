@@ -13,7 +13,7 @@ export interface IFavoriteItem {
   url: string
   icon: string
   desc?: string
-  /** 收藏时间戳（毫秒），列表按此倒序 */
+  /** 收藏时间戳（毫秒）；列表按收藏先后排列，新收藏追加在末尾 */
   at: number
 }
 
@@ -44,6 +44,10 @@ interface FavoriteState {
   /** 收藏 / 取消收藏，返回操作后是否已收藏 */
   toggle: (web: IWebProps) => boolean
   remove: (id: number) => void
+  /** 置顶：移到列表最前 */
+  moveTop: (id: number) => void
+  /** 置底：移到列表最后 */
+  moveBottom: (id: number) => void
 }
 
 export const useFavoriteStore = create<FavoriteState>((set, get) => ({
@@ -54,6 +58,7 @@ export const useFavoriteStore = create<FavoriteState>((set, get) => ({
     const list = existed
       ? get().list.filter((it) => it.id !== web.id)
       : [
+          ...get().list,
           {
             id: web.id,
             name: web.name,
@@ -62,7 +67,6 @@ export const useFavoriteStore = create<FavoriteState>((set, get) => ({
             desc: web.desc || '',
             at: Date.now(),
           },
-          ...get().list,
         ]
     set({ list })
     writeFavorites(list)
@@ -73,5 +77,23 @@ export const useFavoriteStore = create<FavoriteState>((set, get) => ({
     const list = get().list.filter((it) => it.id !== id)
     set({ list })
     writeFavorites(list)
+  },
+
+  moveTop(id) {
+    const list = get().list
+    const item = list.find((it) => it.id === id)
+    if (!item || list[0]?.id === id) return
+    const next = [item, ...list.filter((it) => it.id !== id)]
+    set({ list: next })
+    writeFavorites(next)
+  },
+
+  moveBottom(id) {
+    const list = get().list
+    const item = list.find((it) => it.id === id)
+    if (!item || list[list.length - 1]?.id === id) return
+    const next = [...list.filter((it) => it.id !== id), item]
+    set({ list: next })
+    writeFavorites(next)
   },
 }))
